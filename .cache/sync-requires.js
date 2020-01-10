@@ -5,9 +5,9 @@ const preferDefault = m => m && m.default || m
 
 
 exports.components = {
-  "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/brian/Sites/tensure.io/.cache/dev-404-page.js"))),
-  "component---src-pages-404-js": hot(preferDefault(require("/Users/brian/Sites/tensure.io/src/pages/404.js"))),
-  "component---src-pages-index-js": hot(preferDefault(require("/Users/brian/Sites/tensure.io/src/pages/index.js"))),
-  "component---src-pages-page-2-js": hot(preferDefault(require("/Users/brian/Sites/tensure.io/src/pages/page-2.js")))
+  "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/joe/Source/tensure.io/.cache/dev-404-page.js"))),
+  "component---src-pages-404-js": hot(preferDefault(require("/Users/joe/Source/tensure.io/src/pages/404.js"))),
+  "component---src-pages-index-js": hot(preferDefault(require("/Users/joe/Source/tensure.io/src/pages/index.js"))),
+  "component---src-pages-page-2-js": hot(preferDefault(require("/Users/joe/Source/tensure.io/src/pages/page-2.js")))
 }
 

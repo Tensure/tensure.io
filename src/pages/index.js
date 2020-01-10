@@ -6,6 +6,9 @@ import Layout from "../components/layout"
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 import BackgroundImage from 'gatsby-background-image'
+import Image from "../components/image"
+import SEO from "../components/seo"
+import "./bulma.scss"
 
 const IndexPage = ({className}) => (
   <Layout>

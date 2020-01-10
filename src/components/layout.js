@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
+      className="hero is-dark has-bg-img"
         style={{
           margin: `0 auto`,
           maxWidth: 960,
