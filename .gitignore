@@ -10,5 +10,6 @@ logs
 npm-debug.log*
 
 # gatsby files
-public
+public/
 .cache/
+.firebase/
