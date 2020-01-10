@@ -1,10 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery } from 'gatsby'
-// import { Link } from "gatsby"
-
+import styled from 'styled-components'
 import Layout from "../components/layout"
-// import Image from "../components/image"
-// import SEO from "../components/seo"
 import BackgroundImage from 'gatsby-background-image'
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -18,7 +15,7 @@ const IndexPage = ({className}) => (
       query {
         desktop: file(relativePath: { eq: "tensure_LinkedIn_cover_1-01.png" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
+            fluid(quality: 90) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -44,4 +41,12 @@ const IndexPage = ({className}) => (
   </Layout>
 )
 
-export default IndexPage
+const StyledBackgroundSection = styled(IndexPage)`
+  width: 100%;
+  background-position: bottom center;
+  background-repeat: repeat-y;
+  background-size: cover;
+`
+export default StyledBackgroundSection
+
+// export default IndexPage

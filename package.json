@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.0",
+    "babel-plugin-styled-components": "^1.10.6",
     "bulma": "^0.8.0",
     "gatsby": "^2.18.12",
     "gatsby-background-image": "^0.9.12",
@@ -15,6 +16,7 @@
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-sass": "^2.1.27",
     "gatsby-plugin-sharp": "^2.3.13",
+    "gatsby-plugin-styled-components": "^3.1.17",
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-sharp": "^2.3.12",
     "intersection-observer": "^0.7.0",
@@ -22,7 +24,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
