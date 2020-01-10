@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/Tensure/tensure.io.git']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'gatsby', 'build']
+- name: 'gcr.io/[PROJECT_ID]/firebase'
+  args: ['deploy', '-P' 'tensuredotio', '--token', '[FIREBASE_TOKEN]']
