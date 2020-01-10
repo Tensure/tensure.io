@@ -3,19 +3,18 @@ import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Layout from "../components/layout"
 import BackgroundImage from 'gatsby-background-image'
-import Image from "../components/image"
-import SEO from "../components/seo"
 import "./bulma.scss"
 
 const IndexPage = ({className}) => (
   <Layout>
 
+<section class="hero is-dark is-fullheight-with-navbar">
 <StaticQuery
     query={graphql`
       query {
         desktop: file(relativePath: { eq: "tensure_LinkedIn_cover_1-01.png" }) {
           childImageSharp {
-            fluid(quality: 90) {
+            fluid(quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -30,13 +29,15 @@ const IndexPage = ({className}) => (
           Tag="section"
           className={className}
           fluid={imageData}
-          backgroundColor={`#040e18`}
         >
-          <h2>gatsby-background-image</h2>
         </BackgroundImage>
       )
     }}
   />
+</section>
+
+
+
 
   </Layout>
 )
@@ -46,7 +47,6 @@ const StyledBackgroundSection = styled(IndexPage)`
   background-position: bottom center;
   background-repeat: repeat-y;
   background-size: cover;
+  min-height: calc(100vh - 3.25rem);
 `
 export default StyledBackgroundSection
-
-// export default IndexPage

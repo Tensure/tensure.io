@@ -12,4 +12,3 @@ npm-debug.log*
 # gatsby files
 /.cache/
 public
-/.cache/redux.state
