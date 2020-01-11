@@ -7,74 +7,133 @@ class Contact extends Component {
     this.state = {
       company: "",
       name: "",
+      phone: "",
       email: "",
       message: ""
     };
   }
 
-  handleSubmit(e) {
+  handleInputChange = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-  }
+    this.resetForm();
+    // fetch("http://localhost:3002/send", {
+    //   method: "POST",
+    //   body: JSON.stringify(this.state),
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json"
+    //   }
+    // })
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     if (response.status === "success") {
+    //       alert("Message Sent.");
+    //       this.resetForm();
+    //     } else if (response.status === "fail") {
+    //       alert("Message failed to send.");
+    //     }
+    //   });
+  };
 
   resetForm() {
-    this.setState({ company: "", name: "", email: "", message: "" });
-  }
-  onNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  onEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  onMessageChange(event) {
-    this.setState({ message: event.target.value });
+    this.setState({
+      company: "",
+      name: "",
+      phone: "",
+      email: "",
+      message: ""
+    });
   }
 
   render() {
+    const style = {
+      padding: "30px",
+      marginTop: "50px",
+      width: "100%"
+    };
+
     return (
       <Layout>
-        <div className='App'>
-          <form id='contact-form' onSubmit={this.handleSubmit.bind(this)}>
-            <div className='form-group'>
+        <div className='field' style={style}>
+          <div>
+            <p className='is-size-4'>Get in Touch</p>
+            <p>
+              In Tensure Consulting, our experienced consultants and designers
+              strive to achieve technology innovations and to inspire next
+              generation developers.
+            </p>
+          </div>
+          <hr />
+          <form
+            id='contact-form'
+            onSubmit={this.handleSubmit}
+            method='post'
+            action='#'
+          >
+            <div className='field'>
               <label htmlFor='compnay'>Company</label>
               <input
                 type='text'
-                className='form-control'
-                value={this.state.name}
-                onChange={this.onNameChange.bind(this)}
+                className='input is-success'
+                name='company'
+                value={this.state.company}
+                onChange={this.handleInputChange}
               />
             </div>
-            <div className='form-group'>
+            <div className='field'>
               <label htmlFor='name'>Name</label>
               <input
                 type='text'
-                className='form-control'
+                className='input is-success'
+                name='name'
                 value={this.state.name}
-                onChange={this.onNameChange.bind(this)}
+                onChange={this.handleInputChange}
               />
             </div>
-            <div className='form-group'>
+            <div className='field'>
+              <label htmlFor='phone'>Phone</label>
+              <input
+                type='text'
+                className='input is-success'
+                name='phone'
+                value={this.state.phone}
+                onChange={this.handleInputChange}
+              />
+            </div>
+            <div className='field'>
               <label htmlFor='exampleInputEmail1'>Email address</label>
               <input
                 type='email'
-                className='form-control'
+                className='input is-success'
                 aria-describedby='emailHelp'
+                name='email'
                 value={this.state.email}
-                onChange={this.onEmailChange.bind(this)}
+                onChange={this.handleInputChange}
               />
             </div>
-            <div className='form-group'>
+            <div className='field'>
               <label htmlFor='message'>Message</label>
-              <textarea
-                className='form-control'
-                rows='5'
-                value={this.state.message}
-                onChange={this.onMessageChange.bind(this)}
-              />
+              <div className='control'>
+                <textarea
+                  className='textarea'
+                  placeholder='Please describe'
+                  name='message'
+                  value={this.state.message}
+                  onChange={this.handleInputChange}
+                ></textarea>
+              </div>
             </div>
-            <button type='submit' className='btn btn-primary'>
+            <button type='submit' className='button is-primary'>
               Submit
             </button>
           </form>
