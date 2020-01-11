@@ -1,5 +1,4 @@
 import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
 import logo from "../images/A01-tensure_logo_main_rgb.png";
 

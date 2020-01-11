@@ -57,14 +57,14 @@ class Contact extends Component {
 
   render() {
     const style = {
-      padding: "30px",
-      marginTop: "50px",
-      width: "100%"
+      padding: '5rem 1.5rem'
     };
 
     return (
       <Layout>
-        <div className='field' style={style}>
+        <section className="section" style={style}>
+        <div className='column is-half is-offset-one-quarter'>
+          <div class="box">
           <div>
             <p className='is-size-4'>Get in Touch</p>
             <p>
@@ -137,7 +137,9 @@ class Contact extends Component {
               Submit
             </button>
           </form>
+          </div>
         </div>
+        </section>
       </Layout>
     );
   }
