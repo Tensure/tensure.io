@@ -5,7 +5,7 @@ const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
-const formValid = ({ formErrors, ...rest }) => {
+const formValid = ({ formErrors, company, ...rest }) => {
   let valid = true;
 
   // validate form errors being empty
@@ -90,7 +90,6 @@ class Contact extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.inputNode.value);
     if (formValid(this.state)) {
       console.log(`
         --SUBMITTING--
@@ -170,7 +169,7 @@ class Contact extends Component {
                       <input
                         type='text'
                         className='input is-success'
-                        placeholder='Compnay Name'
+                        placeholder='Compnay name if applicable'
                         name='company'
                         value={this.state.company}
                         onChange={this.handleInputChange}
