@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Layout from "../components/layout";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faCoffee as coffee } from '@fortawesome/free-solid-svg-icons' 
 
 class Contact extends Component {
   constructor() {
@@ -64,7 +66,7 @@ class Contact extends Component {
       <Layout>
         <section className="section" style={style}>
         <div className='column is-half is-offset-one-quarter'>
-          <div class="box">
+          <div className="box">
           <div>
             <p className='is-size-4'>Get in Touch</p>
             <p>
@@ -72,6 +74,7 @@ class Contact extends Component {
               strive to achieve technology innovations and to inspire next
               generation developers.
             </p>
+            <FontAwesomeIcon icon={coffee}/>
           </div>
           <hr />
           <form
