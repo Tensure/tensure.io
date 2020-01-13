@@ -8,11 +8,15 @@ steps:
         name: gcr.io/cloud-builders/npm
         args:
             - install
+            - gatsby-cli
+    -
+        name: gcr.io/cloud-builders/npm
+        args:
+            - install
     -
         name: gcr.io/cloud-builders/npm
         args:
             - run
-            - gatsby
             - build
     -
         name: 'gcr.io/$PROJECT_ID/firebase'
