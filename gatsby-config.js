@@ -36,38 +36,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
-    {
-      resolve: "gatsby-plugin-firebase",
-      options: {
-        features: {
-          ...allFeatures
-        },
-        credentials: {
-          apiKey: "AIzaSyAfypMxb9xICs_cU3cqsCKXBUYLBaBekpM",
-          authDomain: "tensuredotio.firebaseapp.com",
-          databaseURL: "https://tensuredotio.firebaseio.com",
-          projectId: "tensuredotio",
-          storageBucket: "tensuredotio.appspot.com",
-          messagingSenderId: "345001518488",
-          appId: "1:345001518488:web:81ea7f8d347feea5bf37ed",
-          measurementId: "G-1PXNEP64Q8"
-        }
-      }
-    },
-    {
-      resolve: "gatsby-plugin-firebase",
-      options: {
-        features: {
-          auth: true,
-          database: true,
-          firestore: false,
-          storage: false,
-          messaging: false,
-          functions: true,
-          performance: false
-        }
-      }
-    }
+    `gatsby-plugin-offline`
   ]
 };

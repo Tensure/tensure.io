@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Layout from "../components/layout";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faCoffee as coffee } from '@fortawesome/free-solid-svg-icons' 
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
