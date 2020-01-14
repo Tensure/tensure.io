@@ -56,9 +56,7 @@ class Contact extends Component {
     switch (name) {
       // case "company":
       //   formErrors.company =
-      //     value.length < 4 && value.length > 0
-      //       ? "minimum 4 characters required"
-      //       : "";
+      //     value.length < 4 ? "minimum 4 characters required" : "";
       //   break;
 
       case "name":
@@ -92,6 +90,7 @@ class Contact extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log(this.state);
     if (formValid(this.state)) {
       console.log(`
         --SUBMITTING--
@@ -234,7 +233,7 @@ class Contact extends Component {
                       </span>
                     </div>
                     {formErrors.phone.length > 0 && (
-                      <span className='help is-danger'>{formErrors.name}</span>
+                      <span className='help is-danger'>{formErrors.phone}</span>
                     )}
                   </label>
                 </div>
@@ -292,7 +291,7 @@ class Contact extends Component {
                   </label>
                 </div>
                 <button type='submit' className='button is-primary'>
-                  Submit
+                  Send
                 </button>
               </form>
             </div>
