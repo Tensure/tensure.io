@@ -8,7 +8,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const IndexPage = ({ className }) => (
   <Layout>
-    <section class='hero is-dark is-fullheight-with-navbar'>
+    <section className='hero is-dark is-fullheight-with-navbar'>
       <StaticQuery
         query={graphql`
           query {

@@ -1,31 +1,24 @@
-import React, { useState } from "react";
-// import { withFirebase } from "../components/FirebaseContext";
+import React from "react";
 import useForm from "../../Hooks/useForm";
+import validate from "../../Validators/validateForm";
 
 const Form = () => {
-  const { handleInputChange, handleSubmit, values } = useForm(submit);
-
-  // componentDidUpdate() {
-  //   const { firebase } = this.props;
-  //   firebase
-  //     .database()
-  //     .ref("/test")
-  //     .once("value")
-  //     .then(snapshot => {
-  //       this.setState({
-  //         test: snapshot.val()
-  //       });
-  //     });
-  // }
+  const {
+    handleInputChange,
+    handleSubmit,
+    resetForm,
+    values,
+    errors
+  } = useForm(submit, validate);
 
   function submit() {
     console.log("Submitted successfully");
+    resetForm();
   }
+
   const style = {
     padding: "5rem 1.5rem"
   };
-
-  const { formErrors } = values;
 
   return (
     <section className='section' style={style}>
@@ -58,7 +51,6 @@ const Form = () => {
                     name='company'
                     value={values.company}
                     onChange={handleInputChange}
-                    // ref={node => (this.inputNode = node)}
                     noValidate
                   />
                   <span className='icon is-small is-left'>
@@ -74,23 +66,20 @@ const Form = () => {
                   <input
                     type='text'
                     className={
-                      formErrors.name.length > 0
-                        ? "input is-danger"
-                        : "input is-success"
+                      errors.name ? "input is-danger" : "input is-success"
                     }
                     placeholder='Name'
                     name='name'
                     value={values.name}
                     onChange={handleInputChange}
-                    // ref={node => (this.inputNode = node)}
                     noValidate
                   />
                   <span className='icon is-small is-left'>
                     <i className='fas fa-user'></i>
                   </span>
                 </div>
-                {formErrors.name.length > 0 && (
-                  <span className='help is-danger'>{formErrors.name}</span>
+                {errors.name && (
+                  <span className='help is-danger'>{errors.name}</span>
                 )}
               </label>
             </div>
@@ -101,23 +90,20 @@ const Form = () => {
                   <input
                     type='text'
                     className={
-                      formErrors.phone.length > 0
-                        ? "input is-danger"
-                        : "input is-success"
+                      errors.phone ? "input is-danger" : "input is-success"
                     }
-                    placeholder='(xxx) xxx-xxxx'
+                    placeholder='###-###-####'
                     name='phone'
                     value={values.phone}
                     onChange={handleInputChange}
-                    // ref={node => (this.inputNode = node)}
                     noValidate
                   />
                   <span className='icon is-small is-left'>
                     <i className='fas fa-phone'></i>
                   </span>
                 </div>
-                {formErrors.phone.length > 0 && (
-                  <span className='help is-danger'>{formErrors.phone}</span>
+                {errors.phone && (
+                  <span className='help is-danger'>{errors.phone}</span>
                 )}
               </label>
             </div>
@@ -128,9 +114,7 @@ const Form = () => {
                   <input
                     type='email'
                     className={
-                      formErrors.email.length > 0
-                        ? "input is-danger"
-                        : "input is-success"
+                      errors.email ? "input is-danger" : "input is-success"
                     }
                     placeholder='Email'
                     aria-label='Email'
@@ -138,7 +122,6 @@ const Form = () => {
                     name='email'
                     value={values.email}
                     onChange={handleInputChange}
-                    // ref={node => (this.inputNode = node)}
                     noValidate
                   />
                   <span className='icon is-small is-left'>
@@ -148,8 +131,8 @@ const Form = () => {
                     <i className='fas fa-exclamation-triangle'></i>
                   </span>
                 </div>
-                {formErrors.email.length > 0 && (
-                  <span className='help is-danger'>{formErrors.email}</span>
+                {errors.email && (
+                  <span className='help is-danger'>{errors.email}</span>
                 )}
               </label>
             </div>
@@ -158,17 +141,16 @@ const Form = () => {
                 Message:
                 <div className='control'>
                   <textarea
-                    className='textarea '
+                    className='textarea'
                     placeholder='Please describe'
                     name='message'
                     value={values.message}
                     onChange={handleInputChange}
-                    // ref={node => (this.inputNode = node)}
                     noValidate
                   ></textarea>
                 </div>
-                {formErrors.message.length > 0 && (
-                  <span className='help is-danger'>{formErrors.message}</span>
+                {errors.message && (
+                  <span className='help is-danger'>{errors.message}</span>
                 )}
               </label>
             </div>
