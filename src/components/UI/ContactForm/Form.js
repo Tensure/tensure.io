@@ -141,7 +141,11 @@ const Form = () => {
                 Message:
                 <div className='control'>
                   <textarea
-                    className='textarea'
+                    className={
+                      errors.message
+                        ? "textarea is-danger"
+                        : "textarea is-success"
+                    }
                     placeholder='Please describe'
                     name='message'
                     value={values.message}
