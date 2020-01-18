@@ -48,21 +48,9 @@ const useForm = (callback, validate) => {
     }
   }, [errors]);
 
-  const resetForm = () => {
-    setValues({
-      ...values,
-      company: "",
-      name: "",
-      phone: "",
-      email: "",
-      message: ""
-    });
-  };
-
   return {
     handleInputChange,
     handleSubmit,
-    resetForm,
     values,
     errors
   };
