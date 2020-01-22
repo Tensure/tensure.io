@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import logo from "../images/A01-tensure_logo_main_rgb.png";
 
-export default class extends React.Component {
+export default class Header extends React.Component {
   state = {
     activeMenu: false
   };
@@ -17,6 +17,7 @@ export default class extends React.Component {
         className='navbar is-fixed-top'
         role='navigation'
         aria-label='main navigation'
+        expand="sm"
       >
         <div className='navbar-brand'>
           <a className='navbar-item' href='/'>
@@ -48,6 +49,18 @@ export default class extends React.Component {
               <div className='buttons'>
                 <Link className='button is-primary' to='/contact/'>
                   <strong>Contact</strong>
+                </Link>
+                <Link className='button is-primary' to='/blog/'>
+                  <strong>Blog</strong>
+                </Link>
+                <Link className='button is-primary' to='/about/'>
+                  <strong>About</strong>
+                </Link>
+                <Link className='button is-primary' to='/tags/'>
+                  <strong>Tags</strong>
+                </Link>
+                <Link className='button is-primary' to='/team/'>
+                  <strong>Team</strong>
                 </Link>
               </div>
             </div>

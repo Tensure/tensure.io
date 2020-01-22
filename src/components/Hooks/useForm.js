@@ -19,13 +19,23 @@ const useForm = (callback, validate) => {
     });
   };
 
+  const resetForm = () => {
+    setValues({
+      company: "",
+      name: "",
+      phone: "",
+      email: "",
+      message: ""
+    })
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
-    // fetch("http://localhost:3002/send", {
+    // fetch("http://localhost:8000/send", {
     //   method: "POST",
-    //   body: JSON.stringify(this.state),
+    //   body: JSON.stringify(values),
     //   headers: {
     //     Accept: "application/json",
     //     "Content-Type": "application/json"
@@ -35,13 +45,13 @@ const useForm = (callback, validate) => {
     //   .then(response => {
     //     if (response.status === "success") {
     //       alert("Message Sent.");
-    //       this.resetForm();
+    //       resetForm();
     //     } else if (response.status === "fail") {
     //       alert("Message failed to send.");
     //     }
     //   });
   };
-
+  
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();

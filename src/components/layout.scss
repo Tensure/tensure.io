@@ -22,6 +22,10 @@ section,
 summary {
   display: block;
 }
+// need a better way to show children components
+main {
+  padding: 5rem 1.5rem
+}
 audio,
 canvas,
 progress,

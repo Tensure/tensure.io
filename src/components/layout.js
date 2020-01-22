@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import '../styles/index.scss'
 import Header from "./header"
 import "./layout.scss"
 
@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
+<main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Tensure Consulting, Inc.
         </footer>
