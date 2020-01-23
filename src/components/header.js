@@ -47,20 +47,20 @@ export default class Header extends React.Component {
           <div className='navbar-end'>
             <div className='navbar-item'>
               <div className='buttons'>
-                <Link className='button is-primary' to='/contact/'>
-                  <strong>Contact</strong>
+                <Link className='button is-primary' to='/about/'>
+                  <strong>About</strong>
                 </Link>
                 <Link className='button is-primary' to='/blog/'>
                   <strong>Blog</strong>
                 </Link>
-                <Link className='button is-primary' to='/about/'>
-                  <strong>About</strong>
+                <Link className='button is-primary' to='/team/'>
+                  <strong>Team</strong>
                 </Link>
                 <Link className='button is-primary' to='/tags/'>
                   <strong>Tags</strong>
                 </Link>
-                <Link className='button is-primary' to='/team/'>
-                  <strong>Team</strong>
+                <Link className='button is-primary' to='/contact/'>
+                  <strong>Contact</strong>
                 </Link>
               </div>
             </div>

@@ -16,14 +16,10 @@ const Form = () => {
     setIsSubmitted(true);
   }
 
-  const style = {
-    padding: "5rem 1.5rem"
-  };
-
   return (
     <div>
       {!isSubmitted ? (
-        <section className='section' style={style}>
+        <section className='section' >
           <div className='column is-half is-offset-one-quarter'>
             <div className='box'>
               <div>
@@ -173,7 +169,7 @@ const Form = () => {
           </div>
         </section>
       ) : (
-        <section className='section' style={style}>
+        <section className='section'>
           <div className='column is-half is-offset-one-quarter'>
             <article className='message is-primary'>
               <div className='message-header'>

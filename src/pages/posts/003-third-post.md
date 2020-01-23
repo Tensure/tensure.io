@@ -1,8 +1,12 @@
 ---
-title: 'Third Post - CSS'
+title: "ORCA - coworking"
 date: 2020-01-22 14:55:00
-author: 'John Doe'
-path: '/third-post'
+author: "Tony Chou"
+path: "/third-post"
+image: ../../images/tensure-coworking.png
+tags:
+  - coworking
+  - onboarding
 ---
 
-This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, This time we are gonna dive into CSS, 
+First cowroking session...

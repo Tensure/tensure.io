@@ -1,47 +1,72 @@
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import {graphql, StaticQuery} from 'gatsby'
-import Post from '../components/Post'
-
+import { graphql, StaticQuery } from "gatsby";
+import Post from "../components/Post";
+import { Row, Col } from "reactstrap";
+import Sidebar from '../components/Sidebar';
 
 const BlogPage = () => {
   return (
     <Layout>
       <SEO title='Blog'></SEO>
-      <h1>Blog Page</h1>
-      <StaticQuery query={indexQuery} render={data => {
-        return (
-          <div>
-          {data.allMarkdownRemark.edges.map(({node}) => (
-            <Post title={node.frontmatter.title}
-            author={node.frontmatter.author}
-            path={node.frontmatter.path}
-            date={node.frontmatter.date}
-            body={node.excerpt}/>
-          ))}</div>
-        )
-      }}/>
+      <div className='container'>
+        <Row>
+          <Col md='8'>
+            <StaticQuery
+              query={indexQuery}
+              render={data => {
+                return (
+                  <div>
+                    {data.allMarkdownRemark.edges.map(({ node }) => (
+                      <Post
+                        title={node.frontmatter.title}
+                        author={node.frontmatter.author}
+                        path={node.frontmatter.path}
+                        date={node.frontmatter.date}
+                        body={node.excerpt}
+                        fluid={node.frontmatter.image.childImageSharp.fluid}
+                        tags={node.frontmatter.tags}
+                      />
+                    ))}
+                  </div>
+                );
+              }}
+            />
+          </Col>
+          <Col md='4'>
+              <Sidebar></Sidebar>
+          </Col>
+        </Row>
+      </div>
     </Layout>
   );
 };
 
 const indexQuery = graphql`
-query{
-  allMarkdownRemark{
-    edges{
-      node{
-        id
-        frontmatter{
-          title
-          date
-          author
-          path
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMM Do YYYY")
+            author
+            path
+            tags
+            image {
+              childImageSharp {
+                fluid(maxWidth: 500, maxHeight: 500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          excerpt
         }
-        excerpt
       }
     }
   }
-}
-`
+`;
 export default BlogPage;
