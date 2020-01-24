@@ -6,6 +6,7 @@ import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 
+
 const BlogPage = () => {
   return (
     <Layout pageTitle="TensureBlog">
@@ -46,7 +47,8 @@ const BlogPage = () => {
 
 const indexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }
+      limit: 2) {
       edges {
         node {
           id

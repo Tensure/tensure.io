@@ -17,7 +17,7 @@ export default class Header extends React.Component {
         className='navbar is-fixed-top'
         role='navigation'
         aria-label='main navigation'
-        expand="sm"
+        expand='sm'
       >
         <div className='navbar-brand'>
           <a className='navbar-item' href='/'>
@@ -56,11 +56,11 @@ export default class Header extends React.Component {
                 <Link className='button is-primary' to='/team/'>
                   <strong>Team</strong>
                 </Link>
-                <Link className='button is-primary' to='/tags/'>
-                  <strong>Tags</strong>
-                </Link>
                 <Link className='button is-primary' to='/contact/'>
                   <strong>Contact</strong>
+                </Link>
+                <Link className='button is-primary' to='/tags/'>
+                  <strong>Tags</strong>
                 </Link>
               </div>
             </div>
