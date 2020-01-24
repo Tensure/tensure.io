@@ -1,0 +1,52 @@
+.container#content {
+  margin-top: 60px;
+}
+
+a {
+  color: #0056b3;
+  &:hover {
+    color: #007bff;
+    text-decoration: none;
+  }
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+ul {
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+
+  li {
+    margin: auto 20px;
+
+    a {
+      opacity: 0.6;
+      transition: all 0.1s ease-in;
+      &:hover {
+        opacity: 1;
+      }
+      &.facebook {
+        color: rgb(66, 103, 178);
+      }
+      &.twitter {
+        color: rgb(56, 161, 243);
+      }
+      &.google {
+        color: rgb(221, 75, 57);
+      }
+      &.linkedin {
+        color: rgb(0, 119, 181);
+      }
+    }
+  }
+}
