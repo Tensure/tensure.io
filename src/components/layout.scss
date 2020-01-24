@@ -24,7 +24,12 @@ summary {
 }
 // need a better way to show children components
 main {
-  padding: 5rem 1.5rem
+  padding: 4rem 1.5rem
+}
+main h1 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-family: "Nunito", sans-serif;
 }
 audio,
 canvas,

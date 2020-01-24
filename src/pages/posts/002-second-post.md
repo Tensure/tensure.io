@@ -1,8 +1,7 @@
 ---
 title: "Second Post - HTML"
 date: 2019-01-22 13:55:00
-author: "Jane Doe"
-path: "/second-post"
+author: "Joe Kerstanoff"
 image: ../../images/tensure-coworking.png
 tags:
   - code

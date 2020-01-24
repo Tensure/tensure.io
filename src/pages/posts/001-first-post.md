@@ -1,9 +1,8 @@
 ---
 title: "First Post - Introduction"
 date: 2020-01-22 13:50:00
-author: "John Doe"
-path: "/first-post"
-image: ../../images/tensure-coworking.png
+author: "Doug Shannon"
+image: ../../images/tensure_LinkedIn_cover_1-01.png
 tags:
   - code
 ---

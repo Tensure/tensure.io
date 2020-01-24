@@ -1,11 +1,34 @@
 import React from 'react'
-import { Card, CardTitle, CardBody, Form, FormGroup, Input, Button } from 'reactstrap'
+import { Card, CardTitle, CardBody, CardText, Form, FormGroup, Input } from 'reactstrap'
 import {graphql, StaticQuery} from 'gatsby';
 import Img from 'gatsby-image'
 import { Link } from "gatsby";
 
-const Sidebar = () => (
+const Sidebar = ({authorImageFluid, postAuthor}) => (
   <div>
+    {postAuthor && (
+      <Card>
+        <Img className="card-image-top" fluid={authorImageFluid} />
+        <CardBody>
+          <CardTitle className="text-center text-uppercase mb-2">{postAuthor.name}</CardTitle>
+          <CardText className="text-center mb-2">{postAuthor.bio}</CardText>
+          <div className="author-social-links text-center">
+            <ul>
+              <li><a href={postAuthor.facebook} target="_blank" rel="noopener noreferrer" className="facebook">
+              <i className="fab fa-facebook-f fa-lg"></i></a></li>
+              <li><a href={postAuthor.twitter} target="_blank" rel="noopener noreferrer" className="twitter">
+              <i className="fab fa-twitter fa-lg"></i></a></li>
+              <li><a href={postAuthor.github} target="_blank" rel="noopener noreferrer" className="github">
+              <i className="fab fa-github fa-lg"></i></a></li>
+              <li><a href={postAuthor.instagram} target="_blank" rel="noopener noreferrer" className="instagram">
+              <i className="fab fa-instagram fa-lg"></i></a></li>
+              <li><a href={postAuthor.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin">
+              <i className="fab fa-linkedin fa-lg"></i></a></li>
+            </ul>
+          </div>
+        </CardBody>
+      </Card>
+    )}
     <Card>
       <CardBody>
         <CardTitle className="text-center text-uppercase mb-3">
@@ -29,7 +52,7 @@ const Sidebar = () => (
         <CardTitle className="text-center text-uppercase">
           Advertisement
         </CardTitle>
-        <img src="https://via.placeholder.com/320x200" alt="Advert" style={{width: "100%"}} />>
+        <img src="https://via.placeholder.com/320x200" alt="Advert" style={{width: "100%"}} />
       </CardBody>
     </Card>
     <Card>
@@ -41,12 +64,12 @@ const Sidebar = () => (
           <div>
             {data.allMarkdownRemark.edges.map(({node}) => (
               <Card key={node.id}>
-                <Link to={node.frontmatter.path}>
+                <Link to={node.fields.slug}>
                   <Img className="card-image-top" fluid={node.frontmatter.image.childImageSharp.fluid}></Img>
                 </Link>
                 <CardBody>
                   <CardTitle>
-                    <Link to={node.frontmatter.path}>
+                    <Link to={node.fields.slug}>
                       {node.frontmatter.title}
                     </Link>
                   </CardTitle>
@@ -71,7 +94,6 @@ const sidebarQuery = graphql`
           id
           frontmatter{
             title
-            path
             image{
               childImageSharp{
                 fluid(maxWidth: 300) {
@@ -79,6 +101,9 @@ const sidebarQuery = graphql`
                 }
               }
             }
+          }
+          fields{
+            slug
           }
         }
       }

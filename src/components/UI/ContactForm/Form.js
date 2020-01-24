@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useForm from "../../Hooks/useForm";
 import validate from "../../Validators/validateForm";
+import firebase from 'firebase'
 
 const Form = () => {
   const { handleInputChange, handleSubmit, values, errors } = useForm(
@@ -13,7 +14,12 @@ const Form = () => {
   function submit() {
     console.log("submitted successfully");
     // nextStep();
+    // firebase
+    //   .firestore()
+    //   .collection('contacts')
+    //   .add({values})
     setIsSubmitted(true);
+
   }
 
   return (

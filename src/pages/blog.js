@@ -4,11 +4,11 @@ import SEO from "../components/seo";
 import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
-import Sidebar from '../components/Sidebar';
+import Sidebar from "../components/Sidebar";
 
 const BlogPage = () => {
   return (
-    <Layout>
+    <Layout pageTitle="TensureBlog">
       <SEO title='Blog'></SEO>
       <div className='container'>
         <Row>
@@ -20,9 +20,10 @@ const BlogPage = () => {
                   <div>
                     {data.allMarkdownRemark.edges.map(({ node }) => (
                       <Post
+                        key={node.id}
                         title={node.frontmatter.title}
                         author={node.frontmatter.author}
-                        path={node.frontmatter.path}
+                        slug={node.fields.slug}
                         date={node.frontmatter.date}
                         body={node.excerpt}
                         fluid={node.frontmatter.image.childImageSharp.fluid}
@@ -35,7 +36,7 @@ const BlogPage = () => {
             />
           </Col>
           <Col md='4'>
-              <Sidebar></Sidebar>
+            <Sidebar />
           </Col>
         </Row>
       </div>
@@ -53,15 +54,17 @@ const indexQuery = graphql`
             title
             date(formatString: "MMM Do YYYY")
             author
-            path
             tags
             image {
               childImageSharp {
-                fluid(maxWidth: 500, maxHeight: 500) {
+                fluid(maxWidth: 450, maxHeight: 450) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
+          }
+          fields {
+            slug
           }
           excerpt
         }

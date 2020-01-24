@@ -5,7 +5,7 @@ import Form from "../components/UI/ContactForm/Form";
 
 const Contact = () => {
   return (
-    <Layout>
+    <Layout pageTitle="Contact form">
       <SEO title='Contact'></SEO>
       <Form />
     </Layout>

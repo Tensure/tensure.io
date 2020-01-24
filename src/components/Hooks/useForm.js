@@ -19,16 +19,6 @@ const useForm = (callback, validate) => {
     });
   };
 
-  const resetForm = () => {
-    setValues({
-      company: "",
-      name: "",
-      phone: "",
-      email: "",
-      message: ""
-    })
-  }
-
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
