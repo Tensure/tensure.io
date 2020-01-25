@@ -2,20 +2,25 @@ import React from "react";
 import Layout from "../components/layout";
 import Post from "../components/Post";
 import { graphql } from "gatsby";
-import { Row, Col } from "reactstrap";
+import authors from "../util/authors";
 import Sidebar from "../components/Sidebar";
-import PaginationLinks from "../components/PaginationLinks";
+import { Row, Col } from "reactstrap";
 
-const postList = props => {
-  const posts = props.data.allMarkdownRemark.edges;
-  const { currentPage, numberOfPages } = props.pageContext;
+const authorPosts = ({ data, pageContext }) => {
+  const { totalCount } = data.allMarkdownRemark;
+  const author = authors.find(x => x.name === pageContext.authorName);
+  const pageHeader = `${totalCount} Posts by: ${pageContext.authorName}`;
 
   return (
-    <Layout pageTitle={`Page: ${currentPage}`}>
+    <Layout
+      pageTitle={pageHeader}
+      postAuthor={author}
+      authorImageFluid={data.file.childImageSharp.fluid}
+    >
       <div className='container'>
         <Row>
           <Col md='8'>
-            {posts.map(({ node }) => (
+            {data.allMarkdownRemark.edges.map(({ node }) => (
               <Post
                 key={node.id}
                 slug={node.fields.slug}
@@ -27,13 +32,12 @@ const postList = props => {
                 fluid={node.frontmatter.image.childImageSharp.fluid}
               />
             ))}
-            <PaginationLinks
-              currentPage={currentPage}
-              numberOfPages={numberOfPages}
-            />
           </Col>
           <Col md='4'>
-            <Sidebar></Sidebar>
+            <Sidebar
+            postAuthor={author}
+            authorImageFluid={data.file.childImageSharp.fluid}
+            ></Sidebar>
           </Col>
         </Row>
       </div>
@@ -41,13 +45,13 @@ const postList = props => {
   );
 };
 
-export const postListQuery = graphql`
-  query postListQuery($skip: Int!, $limit: Int!) {
+export const authorQuery = graphql`
+  query($authorName: String!, $imageUrl: String!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
+      filter: { frontmatter: { author: { eq: $authorName } } }
     ) {
+      totalCount
       edges {
         node {
           id
@@ -58,7 +62,7 @@ export const postListQuery = graphql`
             tags
             image {
               childImageSharp {
-                fluid(maxWidth: 650, maxHeight: 371) {
+                fluid(maxWidth: 650) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -71,6 +75,14 @@ export const postListQuery = graphql`
         }
       }
     }
+    file(relativePath: { eq: $imageUrl }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `;
-export default postList;
+
+export default authorPosts;

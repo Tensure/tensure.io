@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "gatsby";
 import { Badge, Card, CardTitle, CardText, CardSubtitle, CardBody } from "reactstrap";
-import Img from "gatsby-image";
 import {slugify } from '../util/utilityFunctions'
+import Img from "gatsby-image";
 
-const Post = ({ title, author, slug, date, body, fluid, tags }) => {
+const Post = ({ title, author, slug, date, body, fluid, tags}) => {
   return (
     <Card>
-      <Link to={slug}>
+      <Link to={`/blog/${slug}`}>
         <Img className='card-image-top' fluid={fluid} />
       </Link>
       <CardBody>
         <CardTitle>
-          <Link to={slug}>{title}</Link>
+          <Link to={`/blog/${slug}`}>{title}</Link>
         </CardTitle>
         <CardSubtitle>
           <span className='text-info'>{date}</span> by{" "}
@@ -27,7 +27,7 @@ const Post = ({ title, author, slug, date, body, fluid, tags }) => {
               </Link>
             </li>))}
           </ul>
-        <Link to={slug} className='btn btn-outline-primary float-right'>
+        <Link to={`/blog/${slug}`} className='btn btn-outline-primary float-right'>
           Read more
         </Link>
       </CardBody>

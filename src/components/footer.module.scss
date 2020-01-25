@@ -1,5 +1,23 @@
+.footer {
+  background-color: linear-gradient(#002a49, #010b35);
+}
+
+.content {
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+}
+
+.follow {
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+}
+
 .site-footer {
-  background-color:#04B8A6;
+  background-color: #04b8a6;
   margin-top: 20px;
   padding: 10px;
   text-align: center;
@@ -13,10 +31,10 @@
     font-size: 1.1 rem;
     margin-bottom: 5px;
   }
-  .footersociallinks {
+  .footer-social-links {
     text-align: center;
 
-    ul.sociallinkslist {
+    ul.social-links-list {
       li {
         margin-right: 25px;
         display: inline-block;

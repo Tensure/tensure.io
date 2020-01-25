@@ -1,18 +1,30 @@
-import { Link } from "gatsby";
-import React from "react";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import React, { useState } from "react";
 import logo from "../images/A01-tensure_logo_main_rgb.png";
+import headerStyles from "./header.module.scss";
 
-export default class Header extends React.Component {
-  state = {
-    activeMenu: false
+const Header = () => {
+  const [activeMenu, setActiveMenu] = useState(false);
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  const toggleMenu = () => {
+    if (!activeMenu) {
+      setActiveMenu(true);
+    } else {
+      setActiveMenu(false)
+    }
   };
-  toggleMenu = () => {
-    this.setState({
-      activeMenu: !this.state.activeMenu
-    });
-  };
-  render() {
-    return (
+
+  return (
+    <header className={headerStyles.header}>
       <nav
         className='navbar is-fixed-top'
         role='navigation'
@@ -25,12 +37,12 @@ export default class Header extends React.Component {
           </a>
           <a
             className={
-              this.state.activeMenu
+              activeMenu
                 ? "navbar-burger burger is-active"
                 : "navbar-burger burger"
             }
             role='button'
-            onClick={this.toggleMenu}
+            onClick={toggleMenu}
           >
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
@@ -40,13 +52,16 @@ export default class Header extends React.Component {
         <div
           id='navbarBasicExample'
           className={
-            this.state.activeMenu ? "navbar-menu is-active" : "navbar-menu"
+            activeMenu ? "navbar-menu is-active" : "navbar-menu"
           }
         >
           <div className='navbar-start'></div>
           <div className='navbar-end'>
             <div className='navbar-item'>
               <div className='buttons'>
+                <Link className='button is-primary' to='/'>
+                  <strong>Home</strong>
+                </Link>
                 <Link className='button is-primary' to='/about/'>
                   <strong>About</strong>
                 </Link>
@@ -67,6 +82,8 @@ export default class Header extends React.Component {
           </div>
         </div>
       </nav>
-    );
-  }
-}
+    </header>
+  );
+};
+
+export default Header;

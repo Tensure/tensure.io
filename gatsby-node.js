@@ -22,7 +22,8 @@ exports.createPages = ({ actions, graphql }) => {
     singlePost: path.resolve("src/templates/single-post.js"),
     tagsPage: path.resolve("src/templates/tags-page.js"),
     tagPosts: path.resolve("src/templates/tag-posts.js"),
-    postList: path.resolve("src/templates/post-list.js")
+    postList: path.resolve("src/templates/post-list.js"),
+    authorPosts: path.resolve("src/templates/author-posts.js")
   }
 
   return graphql(`
@@ -50,7 +51,7 @@ exports.createPages = ({ actions, graphql }) => {
     // Create single blog post page
     posts.forEach(({ node }) => {
       createPage({
-        path: node.fields.slug,
+        path: `/blog/${node.fields.slug}`,
         component: templates.singlePost,
         context: {
           // Passing slug for template to use to get post
@@ -100,22 +101,34 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
 
-    const postsPerPage = 2
+    const postsPerPage = 3
     const numberOfPages = Math.ceil(posts.length / postsPerPage)
 
     Array.from({length: numberOfPages}).forEach((_, index) => {
-      const isFirstPage = index === 0
-      const currentPage = index + 1
+      // const isFirstPage = index === 0
+      // const currentPage = index + 1
 
-      if(isFirstPage) return 
+      // if(isFirstPage) return 
 
       createPage({
-        path: `/page/${currentPage}`,
+        path: index === 0 ? `/blog` : `/blog/${index + 1}`,
         component: templates.postList,
         context: {
           limit: postsPerPage,
           skip: index * postsPerPage,
-          currentPage
+          currentPage: index + 1,
+          numberOfPages
+        }
+      })
+    })
+
+    authors.forEach(author => {
+      createPage({
+        path: `/author/${slugify(author.name)}`,
+        component: templates.authorPosts,
+        context: {
+          authorName: author.name,
+          imageUrl: author.imageUrl
         }
       })
     })

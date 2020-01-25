@@ -8,3 +8,5 @@ tags:
 ---
 
 Welcome to Tensure Blog, I hope you enjoy our content, Welcome to Tensure Blog, I hope you enjoy our content
+
+![logo](./tensure-logo3.png)

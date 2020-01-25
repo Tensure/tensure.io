@@ -1,13 +1,13 @@
 import React from "react";
+import Img from "gatsby-image";
 import Layout from "../components/layout";
 import Sidebar from "../components/Sidebar";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
 import { Badge, Card, CardBody, CardSubtitle, Row, Col } from "reactstrap";
-import Img from "gatsby-image";
 import { slugify } from "../util/utilityFunctions";
 import authors from "../util/authors";
-import './single-post.scss'
+import '../styles/single-post.scss'
 
 const SinglePost = ({ data, pageContext }) => {
   const post = data.markdownRemark.frontmatter;

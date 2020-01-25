@@ -25,7 +25,9 @@
     "gatsby-plugin-sass": "^2.1.27",
     "gatsby-plugin-sharp": "^2.3.13",
     "gatsby-plugin-styled-components": "^3.1.17",
-    "gatsby-source-filesystem": "^2.1.40",
+    "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-relative-images": "^0.2.2",
+    "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.6.48",
     "gatsby-transformer-sharp": "^2.3.12",
     "intersection-observer": "^0.7.0",
@@ -43,6 +45,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
+    "env-cmd": "^10.0.1",
     "firebase-tools": "^7.11.0",
     "prettier": "^1.19.1"
   },
@@ -52,7 +55,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "env-cmd .env.development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

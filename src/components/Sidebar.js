@@ -64,12 +64,12 @@ const Sidebar = ({authorImageFluid, postAuthor}) => (
           <div>
             {data.allMarkdownRemark.edges.map(({node}) => (
               <Card key={node.id}>
-                <Link to={node.fields.slug}>
+                <Link to={`/blog/${node.fields.slug}`}>
                   <Img className="card-image-top" fluid={node.frontmatter.image.childImageSharp.fluid}></Img>
                 </Link>
                 <CardBody>
                   <CardTitle>
-                    <Link to={node.fields.slug}>
+                    <Link to={`/blog/${node.fields.slug}`}>
                       {node.frontmatter.title}
                     </Link>
                   </CardTitle>

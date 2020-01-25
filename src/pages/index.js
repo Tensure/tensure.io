@@ -3,7 +3,6 @@ import { graphql, StaticQuery } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import BackgroundImage from "gatsby-background-image";
-import "./bulma.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const IndexPage = ({ className }) => (
@@ -13,10 +12,10 @@ const IndexPage = ({ className }) => (
         query={graphql`
           query {
             desktop: file(
-              relativePath: { eq: "tensure_LinkedIn_cover_1-01.png" }
+              relativePath: { eq: "tensure-logo.png" }
             ) {
               childImageSharp {
-                fluid(quality: 100) {
+                fluid(quality: 100, maxHeight: 600) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }

@@ -5,11 +5,13 @@ import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
-
+import PaginationLinks from "../components/PaginationLinks";
 
 const BlogPage = () => {
+  const postsPerPage = 3;
+  let numberOfPages;
   return (
-    <Layout pageTitle="TensureBlog">
+    <Layout pageTitle='TensureBlog'>
       <SEO title='Blog'></SEO>
       <div className='container'>
         <Row>
@@ -17,6 +19,9 @@ const BlogPage = () => {
             <StaticQuery
               query={indexQuery}
               render={data => {
+                numberOfPages = Math.ceil(
+                  data.allMarkdownRemark.totalCount / postsPerPage
+                );
                 return (
                   <div>
                     {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -27,6 +32,7 @@ const BlogPage = () => {
                         slug={node.fields.slug}
                         date={node.frontmatter.date}
                         body={node.excerpt}
+                        covered={node.html}
                         fluid={node.frontmatter.image.childImageSharp.fluid}
                         tags={node.frontmatter.tags}
                       />
@@ -35,6 +41,7 @@ const BlogPage = () => {
                 );
               }}
             />
+              <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
           </Col>
           <Col md='4'>
             <Sidebar />
@@ -47,8 +54,11 @@ const BlogPage = () => {
 
 const indexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }
-      limit: 2) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      totalCount
       edges {
         node {
           id
@@ -59,7 +69,7 @@ const indexQuery = graphql`
             tags
             image {
               childImageSharp {
-                fluid(maxWidth: 450, maxHeight: 450) {
+                fluid(maxHeight: 150) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -68,6 +78,7 @@ const indexQuery = graphql`
           fields {
             slug
           }
+          html
           excerpt
         }
       }

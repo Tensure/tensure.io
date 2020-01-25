@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `Tensure.io Consulting`,
     description: `Boutique consultation firm with a focus on social impact.`,
-    author: `Team Tensure`
+    author: `Tensure Consulting, Inc.`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`
+        name: `src`,
+        path: `${__dirname}/src/`
       }
     },
     {
@@ -34,7 +34,21 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 750,
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
