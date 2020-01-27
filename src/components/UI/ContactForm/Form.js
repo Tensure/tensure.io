@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useForm from "../../Hooks/useForm";
 import validate from "../../Validators/validateForm";
-import firebase from 'firebase'
+import { FirebaseContext } from "gatsby-plugin-firebase";
 
 const Form = () => {
   const { handleInputChange, handleSubmit, values, errors } = useForm(
@@ -9,15 +9,18 @@ const Form = () => {
     validate
   );
 
+  const firebase = React.useContext(FirebaseContext);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submit() {
+    debugger;
     console.log("submitted successfully");
-    // nextStep();
-    // firebase
-    //   .firestore()
-    //   .collection('contacts')
-    //   .add({values})
+     //nextStep();
+     firebase
+       .firestore()
+       .collection('contacts')
+       .add({values})
     setIsSubmitted(true);
 
   }
@@ -39,19 +42,19 @@ const Form = () => {
               <hr />
               <form
                 id='contact-form'
-                onSubmit={handleSubmit}
+                onSubmit={(event) => handleSubmit(event, submit)}
                 noValidate
                 method='post'
                 action='#'
               >
                 <div className='field'>
-                  <label htmlFor='compnay'>
+                  <label htmlFor='company'>
                     Company:
                     <div className='control has-icons-left'>
                       <input
                         type='text'
                         className='input is-success'
-                        placeholder='Compnay name if applicable'
+                        placeholder='Company name if applicable'
                         name='company'
                         value={values.company}
                         onChange={handleInputChange}

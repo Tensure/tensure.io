@@ -19,10 +19,12 @@ const useForm = (callback, validate) => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e, callback) => {
     e.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
+    if(callback)
+      callback();
     // fetch("http://localhost:8000/send", {
     //   method: "POST",
     //   body: JSON.stringify(values),

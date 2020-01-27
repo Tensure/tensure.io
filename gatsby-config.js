@@ -1,6 +1,4 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
-});
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
@@ -23,6 +21,20 @@ module.exports = {
         name: `src`,
         path: `${__dirname}/src/`
       }
+    },
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        features: {
+          auth: false,
+          database: false,
+          firestore: true,
+          storage: false,
+          messaging: false,
+          functions: true,
+          performance: false,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,

@@ -19,6 +19,10 @@ $dark: $eggplant;
 // Update some of Bulma's component variables
 $body-background-color: $dark;
 
+label {
+    display: block;
+}
+
 // Import only what you need from Bulma
 @import "~bulma/bulma.sass";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
