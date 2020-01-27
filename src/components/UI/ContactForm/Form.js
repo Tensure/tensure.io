@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import useForm from "../../Hooks/useForm";
 import validate from "../../Validators/validateForm";
-import firebase from 'firebase'
 
-const Form = () => {
+const ContactForm = () => {
   const { handleInputChange, handleSubmit, values, errors } = useForm(
     submit,
     validate
@@ -29,7 +28,7 @@ const Form = () => {
           <div className='column is-half is-offset-one-quarter'>
             <div className='box'>
               <div>
-                <p className='is-size-4'>Get in Touch</p>
+                <p className='is-size-4 has-text-centered'>Get in Touch</p>
                 <p>
                   In Tensure Consulting, our experienced consultants and
                   designers strive to achieve technology innovations and to
@@ -37,6 +36,7 @@ const Form = () => {
                 </p>
               </div>
               <hr />
+              
               <form
                 id='contact-form'
                 onSubmit={handleSubmit}
@@ -198,4 +198,4 @@ const Form = () => {
     </div>
   );
 };
-export default Form;
+export default ContactForm;
