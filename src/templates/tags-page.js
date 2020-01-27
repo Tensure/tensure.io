@@ -17,7 +17,7 @@ const tagsPage = ({ pageContext }) => {
         <Col md='8'>
         <ul className={tagPageStyles.tags}>
         {tags.map(tag => (
-          <li key={tag} style={{ marginBottom: "10px" }}>
+          <li key={tag} className={tagPageStyles.tag}>
             <Button color='primary' href={`/tag/${slugify(tag)}`}>
               {tag} <Badge color='light'>{tagPostCounts[tag]}</Badge>
             </Button>

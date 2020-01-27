@@ -1,19 +1,10 @@
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import React, { useState } from "react";
 import logo from "../images/A01-tensure_logo_main_rgb.png";
 import headerStyles from "./header.module.scss";
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(false);
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   const toggleMenu = () => {
     if (!activeMenu) {
