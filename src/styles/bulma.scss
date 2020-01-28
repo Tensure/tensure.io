@@ -5,7 +5,7 @@
 $fa-font-path: "/assets/webfonts";
 
 // Set your brand colors
-$eggplant: #171334;
+$eggplant:rgb(197, 233, 229);
 $teal: #53c0a5;
 $purple: #8766ac;
 $blue: #468ac9;
@@ -18,6 +18,10 @@ $dark: $eggplant;
 
 // Update some of Bulma's component variables
 $body-background-color: $dark;
+
+label {
+    display: block;
+}
 
 // Import only what you need from Bulma
 @import "~bulma/bulma.sass";

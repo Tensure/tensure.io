@@ -5,48 +5,39 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import Header from "./header";
+import Footer from "./footer";
+import { useStaticQuery, graphql } from "gatsby";
+import layoutStyles from "./layout.module.scss";
+import "../styles/index.scss";
+import "../styles/bulma.scss";
 
-import Header from "./header"
-import "./layout.scss"
-
-const Layout = ({ children }) => {
+const Layout = ({ children, pageTitle }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query {
       site {
         siteMetadata {
           title
         }
       }
     }
-  `)
+  `);
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-      className="hero is-dark has-bg-img"
-        style={{
-          margin: `0 auto`,
-          // maxWidth: 960,
-          // padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Tensure Consulting, Inc.
-        </footer>
+    <div className={layoutStyles.container}>
+      <div className={layoutStyles.content}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        {children}
       </div>
-    </>
-  )
-}
-
+      <Footer />
+    </div>
+  );
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+  children: PropTypes.node.isRequired
+};
 
-export default Layout
+export default Layout;

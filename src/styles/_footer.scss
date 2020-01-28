@@ -1,0 +1,46 @@
+.site-footer {
+  background-color:#04B8A6;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+
+  .tensure-inc {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .follow-us {
+    font-size: 1.1 rem;
+    margin-bottom: 5px;
+  }
+  .footersociallinks {
+    text-align: center;
+
+    ul.sociallinkslist {
+      li {
+        margin-right: 25px;
+        display: inline-block;
+
+        a {
+          color: darkgray;
+
+          &.instagram:hover {
+            color: #e95950;
+          }
+          &.facebook:hover {
+            color: rgb(66, 103, 178);
+          }
+          &.twitter:hover {
+            color: rgb(56, 161, 243);
+          }
+          &.github:hover {
+            color: rgb(0, 0, 0);
+          }
+          &.linkedin:hover {
+            color: rgb(0, 119, 181);
+          }
+        }
+      }
+    }
+  }
+}

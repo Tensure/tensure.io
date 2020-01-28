@@ -13,3 +13,8 @@ npm-debug.log*
 public/
 .cache/
 .firebase/
+
+#env files
+.env.development
+.env.production
+.env
