@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
+import SidebarNav from "../components/SidebarNav"
 
 const tagPosts = ({ data, pageContext }) => {
   const { tag } = pageContext;
@@ -16,7 +17,10 @@ const tagPosts = ({ data, pageContext }) => {
     <Layout pageTitle={pageHeader}>
       <div className='container'>
         <Row>
-          <Col md='8'>
+          <Col md='3'>
+            <SidebarNav></SidebarNav>
+          </Col>
+          <Col md='6'>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <Post
                 key={node.id}
@@ -30,7 +34,7 @@ const tagPosts = ({ data, pageContext }) => {
               />
             ))}
           </Col>
-          <Col md='4'>
+          <Col md='3'>
             <Sidebar></Sidebar>
           </Col>
         </Row>

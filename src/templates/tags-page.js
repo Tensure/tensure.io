@@ -3,35 +3,39 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Badge, Button, Row, Col } from "reactstrap";
 import { slugify } from "../util/utilityFunctions";
-import Sidebar from "../components/Sidebar"
-import tagPageStyles from "./tags-page.module.scss"
+import Sidebar from "../components/Sidebar";
+import SidebarNav from "../components/SidebarNav";
+import tagPageStyles from "./tags-page.module.scss";
 
-const tagsPage = ({ pageContext }) => {
+const TagsPage = ({ pageContext }) => {
   const { tags, tagPostCounts } = pageContext;
   return (
     <Layout pageTitle='All tags'>
-      <hr/>
+      <hr />
       <div className='container'>
-      <SEO title='All tags' keywords={["tags", "topics"]}></SEO>
-      <Row>
-        <Col md='8'>
-        <ul className={tagPageStyles.tags}>
-        {tags.map(tag => (
-          <li key={tag} className={tagPageStyles.tag}>
-            <Button color='primary' href={`/tag/${slugify(tag)}`}>
-              {tag} <Badge color='light'>{tagPostCounts[tag]}</Badge>
-            </Button>
-          </li>
-        ))}
-      </ul>
-        </Col>
-        <Col md='4'>
-          <Sidebar></Sidebar>
-        </Col>
-      </Row>
+        <SEO title='All tags' keywords={["tags", "topics"]}></SEO>
+        <Row>
+          <Col md='3'>
+            <SidebarNav />
+          </Col>
+          <Col md='6'>
+            <ul className={tagPageStyles.tags}>
+              {tags.map(tag => (
+                <li key={tag} className={tagPageStyles.tag}>
+                  <Button color='primary' href={`/tag/${slugify(tag)}`}>
+                    {tag} <Badge color='light'>{tagPostCounts[tag]}</Badge>
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </Col>
+          <Col md='3'>
+            <Sidebar></Sidebar>
+          </Col>
+        </Row>
       </div>
     </Layout>
   );
 };
 
-export default tagsPage;
+export default TagsPage;

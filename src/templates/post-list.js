@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import Post from "../components/Post";
 import { graphql } from "gatsby";
 import { Row, Col } from "reactstrap";
+import SidebarNav from "../components/SidebarNav"
 import Sidebar from "../components/Sidebar";
 import PaginationLinks from "../components/PaginationLinks";
 
@@ -14,7 +15,10 @@ const postList = props => {
     <Layout pageTitle={`Page: ${currentPage}`}>
       <div className='container'>
         <Row>
-          <Col md='8'>
+          <Col md='3'>
+            <SidebarNav></SidebarNav>
+          </Col>
+          <Col md='6'>
             {posts.map(({ node }) => (
               <Post
                 key={node.id}
@@ -32,7 +36,7 @@ const postList = props => {
               numberOfPages={numberOfPages}
             />
           </Col>
-          <Col md='4'>
+          <Col md='3'>
             <Sidebar></Sidebar>
           </Col>
         </Row>

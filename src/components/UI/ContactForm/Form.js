@@ -14,21 +14,17 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submit() {
-    debugger;
-    console.log("submitted successfully");
-     //nextStep();
-     firebase
-       .firestore()
-       .collection('contacts')
-       .add({values})
+    firebase
+      .firestore()
+      .collection("contacts")
+      .add({ values });
     setIsSubmitted(true);
-
   }
 
   return (
     <div>
       {!isSubmitted ? (
-        <section className='section' >
+        <section className='section'>
           <div className='column is-half is-offset-one-quarter'>
             <div className='box'>
               <div>
@@ -40,10 +36,10 @@ const ContactForm = () => {
                 </p>
               </div>
               <hr />
-              
+
               <form
                 id='contact-form'
-                onSubmit={(event) => handleSubmit(event, submit)}
+                onSubmit={event => handleSubmit(event, submit)}
                 noValidate
                 method='post'
                 action='#'

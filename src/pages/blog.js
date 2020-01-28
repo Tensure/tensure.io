@@ -6,6 +6,7 @@ import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 import PaginationLinks from "../components/PaginationLinks";
+import SidebarNav from "../components/SidebarNav"
 
 const BlogPage = () => {
   const postsPerPage = 3;
@@ -15,7 +16,10 @@ const BlogPage = () => {
       <SEO title='Blog'></SEO>
       <div className='container'>
         <Row>
-          <Col md='8'>
+          <Col md='3'>
+            <SidebarNav></SidebarNav>
+          </Col>
+          <Col md='6'>
             <StaticQuery
               query={indexQuery}
               render={data => {
@@ -43,7 +47,7 @@ const BlogPage = () => {
             />
               <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
           </Col>
-          <Col md='4'>
+          <Col md='3'>
             <Sidebar />
           </Col>
         </Row>

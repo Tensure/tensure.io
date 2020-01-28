@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
+import SidebarNav from "../components/SidebarNav";
 import Sidebar from "../components/Sidebar";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
@@ -20,7 +21,10 @@ const SinglePost = ({ data, pageContext }) => {
       <div className='container'>
         <SEO title={post.title} />
         <Row>
-          <Col md='8'>
+          <Col md='3'>
+            <SidebarNav />
+          </Col>
+          <Col md='6'>
             <Card>
               <Img
                 className='card-image-top'
@@ -99,7 +103,7 @@ const SinglePost = ({ data, pageContext }) => {
               </li>
             </ul>
           </Col>
-          <Col md='4'>
+          <Col md='3'>
             <Sidebar
               postAuthor={author}
               authorImageFluid={data.file.childImageSharp.fluid}

@@ -10,7 +10,7 @@ const Header = () => {
     if (!activeMenu) {
       setActiveMenu(true);
     } else {
-      setActiveMenu(false)
+      setActiveMenu(false);
     }
   };
 
@@ -42,31 +42,32 @@ const Header = () => {
         </div>
         <div
           id='navbarBasicExample'
-          className={
-            activeMenu ? "navbar-menu is-active" : "navbar-menu"
-          }
+          className={activeMenu ? "navbar-menu is-active" : "navbar-menu"}
         >
           <div className='navbar-start'></div>
           <div className='navbar-end'>
             <div className='navbar-item'>
               <div className='buttons'>
-                <Link className='button is-primary' to='/'>
-                  <strong>Home</strong>
+
+                <Link className='button is-primary is-small' to='/portfolio'>
+                  <i className='fas fa-briefcase'></i>
+                  <span className='ml-1'>PORTFOLIO</span>
                 </Link>
-                <Link className='button is-primary' to='/about/'>
-                  <strong>About</strong>
+                <Link className='button is-primary is-small' to='/about/'>
+                  <i className='fas fa-building'></i>
+                  <span className='ml-1'>COMPANY</span>
                 </Link>
-                <Link className='button is-primary' to='/blog/'>
-                  <strong>Blog</strong>
+                <Link className='button is-primary is-small' to='/blog/'>
+                  <i className='fas fa-blog'></i>
+                  <span className='ml-1'>BLOG</span>
                 </Link>
-                <Link className='button is-primary' to='/team/'>
-                  <strong>Team</strong>
+                <Link className='button is-primary is-small' to='/team/'>
+                  <i className='fas fa-users'></i>
+                  <span className='ml-1'>TEAM</span>
                 </Link>
-                <Link className='button is-primary' to='/contact/'>
-                  <strong>Contact</strong>
-                </Link>
-                <Link className='button is-primary' to='/tags/'>
-                  <strong>Tags</strong>
+                <Link className='button is-black is-small' to='/contact/'>
+                  <i className='fas fa-address-book'></i>
+                  <span className='ml-1'>CONTACT</span>
                 </Link>
               </div>
             </div>

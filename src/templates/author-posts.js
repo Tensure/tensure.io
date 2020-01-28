@@ -4,6 +4,7 @@ import Post from "../components/Post";
 import { graphql } from "gatsby";
 import authors from "../util/authors";
 import Sidebar from "../components/Sidebar";
+import SidebarNav from "../components/SidebarNav";
 import { Row, Col } from "reactstrap";
 
 const authorPosts = ({ data, pageContext }) => {
@@ -19,7 +20,10 @@ const authorPosts = ({ data, pageContext }) => {
     >
       <div className='container'>
         <Row>
-          <Col md='8'>
+          <Col md='3'>
+            <SidebarNav />
+          </Col>
+          <Col md='6'>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <Post
                 key={node.id}
@@ -33,7 +37,7 @@ const authorPosts = ({ data, pageContext }) => {
               />
             ))}
           </Col>
-          <Col md='4'>
+          <Col md='3'>
             <Sidebar
             postAuthor={author}
             authorImageFluid={data.file.childImageSharp.fluid}
