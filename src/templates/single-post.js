@@ -8,7 +8,6 @@ import SEO from "../components/seo";
 import { Badge, Card, CardBody, CardSubtitle, Row, Col } from "reactstrap";
 import { slugify } from "../util/utilityFunctions";
 import authors from "../util/authors";
-import '../styles/single-post.scss'
 
 const SinglePost = ({ data, pageContext }) => {
   const post = data.markdownRemark.frontmatter;

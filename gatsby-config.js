@@ -2,7 +2,7 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Tensure.io Consulting`,
+    title: `Tensure Consulting`,
     description: `Boutique consultation firm with a focus on social impact.`,
     author: `Tensure Consulting, Inc.`
   },

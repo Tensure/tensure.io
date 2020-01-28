@@ -3,7 +3,6 @@ import { graphql, StaticQuery } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import BackgroundImage from "gatsby-background-image";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const IndexPage = ({ className }) => (
   <Layout>
