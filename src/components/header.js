@@ -54,8 +54,8 @@ const Header = () => {
                   <span className='ml-1'>PORTFOLIO</span>
                 </Link>
                 <Link className='button is-primary is-small' to='/about/'>
-                  <i className='fas fa-building'></i>
-                  <span className='ml-1'>COMPANY</span>
+                  <i className='fas fa-globe'></i>
+                  <span className='ml-1'>SERVICES</span>
                 </Link>
                 <Link className='button is-primary is-small' to='/blog/'>
                   <i className='fas fa-blog'></i>
