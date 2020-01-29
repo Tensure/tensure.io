@@ -8,7 +8,14 @@ const useForm = (callback, validate) => {
     email: "",
     message: ""
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    company: "",
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = event => {
@@ -23,27 +30,8 @@ const useForm = (callback, validate) => {
     e.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
-    if(callback)
-      callback();
-    // fetch("http://localhost:8000/send", {
-    //   method: "POST",
-    //   body: JSON.stringify(values),
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json"
-    //   }
-    // })
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     if (response.status === "success") {
-    //       alert("Message Sent.");
-    //       resetForm();
-    //     } else if (response.status === "fail") {
-    //       alert("Message failed to send.");
-    //     }
-    //   });
   };
-  
+
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
