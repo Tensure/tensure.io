@@ -36,7 +36,7 @@ const rawTheme = createMuiTheme({
       main: red.A400
     },
     background: {
-      default: "#fff"
+      default: "#F3F3F3"
     }
   },
   overrides: {
@@ -51,6 +51,13 @@ const rawTheme = createMuiTheme({
         padding: '26px 38px'
       }
     },
+    MuiCssBaseline: {
+      '@global': {
+        body: {
+          backgroundColor: '#f3f3f3',
+        }
+      }
+    }
   },
 });
 
@@ -83,6 +90,7 @@ const theme = {
     h2: {
       ...rawTheme.typography.h2,
       ...fontHeader,
+      letterSpacing: '6.5px',
       fontSize: 48,
     },
     h3: {
