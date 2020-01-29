@@ -1,6 +1,5 @@
 import { Link } from "gatsby";
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -14,7 +13,7 @@ const styles = theme => ({
   hero: {
     minHeight: '100vh',
     display: 'flex',
-    backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 79%);',
+    backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 99%);',
     color: theme.palette.common.white,
     position: 'relative',
     display: 'flex',
@@ -34,9 +33,6 @@ const styles = theme => ({
   },
   background: {
     backgroundPosition: 'center',
-  },
-  button: {
-    minWidth: 200,
   },
   h5: {
     marginBottom: theme.spacing(4),

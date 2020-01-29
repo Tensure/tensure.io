@@ -83,6 +83,7 @@ const theme = {
     h2: {
       ...rawTheme.typography.h2,
       ...fontHeader,
+      letterSpacing: '6.5px',
       fontSize: 48,
     },
     h3: {
