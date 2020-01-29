@@ -14,8 +14,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 const IndexPage = () => (
 
   <React.Fragment>
-  <CssBaseline />
     <ThemeProvider theme={theme}>
+    <CssBaseline />
       <LayoutHomepage>
       
       </LayoutHomepage>

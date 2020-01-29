@@ -14,19 +14,19 @@ const styles = theme => ({
     minHeight: 2000,
     backgroundImage:
       `linear-gradient(0deg, #002A49 10%, rgba(216,216,216,0.00) 80%),URL({backgroundLogo}), URL(${backgroundLogo})`,
-    backgroundPosition: 'center -20px',
+    backgroundPosition: 'center 32%',
     backgroundRepeat: 'no-repeat',
+    backgroundSize: '370%',
       color: theme.palette.common.white,
     position: "relative",
     alignItems: "center",
     [theme.breakpoints.up("sm")]: {
-      // height: 2000,
-      // minHeight: 2000,
-      // maxHeight: 5000
+      backgroundPosition: 'center top',
+      backgroundSize: '230%',
     }
   },
   sampleContent: {
-    margin: '100px 0'
+    margin: '160px auto',
   },
   h5: {
     marginTop: theme.spacing(2),
@@ -58,9 +58,9 @@ const Footer = (props, { className }) => {
 
   return (
     <section className={classes.sample}>
-      <Grid className={classes.sampleContent} container spacing={0} alignItems="flex-start">
+      <Grid container spacing={0} alignItems="flex-start">
         <Grid item xs={12}>
-          <Container className={classes.container} maxWidth="lg">
+          <Container className={classes.sampleContent} maxWidth="lg">
             <Typography color="secondary" align="center" variant="h2" marked="center">
               we build to last
             </Typography>
