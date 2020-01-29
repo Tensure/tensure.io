@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Header from "./header";
 import Footer from "./footer";
 import Hero from "./hero";
+import NavBar from "./NavBar";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -21,6 +22,7 @@ const LayoutHomepage = ({ children, pageTitle }) => {
       <Grid container spacing={0}>
         <Grid item xs={12}>
           {/* <Header /> */}
+          <NavBar />
           <Hero />
           {children}
           <Footer />

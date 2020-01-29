@@ -1,0 +1,17 @@
+.section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 2rem;
+    @media (min-width: 500px) {
+        padding: 4rem;
+    }
+}
+.logo {
+    
+}
+.menuButton {
+    text-align: right;
+}
