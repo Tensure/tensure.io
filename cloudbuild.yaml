@@ -5,6 +5,7 @@ steps:
             - clone
             - 'https://github.com/Tensure/tensure.io.git'
     -
+<<<<<<< HEAD
         name: gcr.io/cloud-builders/npm:node-10.16.0
         args:
             - install
@@ -14,6 +15,17 @@ steps:
             - install
     -
         name: gcr.io/cloud-builders/npm:node-10.16.0
+=======
+        name: 'gcr.io/cloud-builders/npm:node-10.10.0'
+        args:
+            - install
+    -
+        name: 'gcr.io/cloud-builders/npm:node-10.10.0'
+        args:
+            - install
+    -
+        name: 'gcr.io/cloud-builders/npm:node-10.10.0'
+>>>>>>> master
         args:
             - run
             - build
