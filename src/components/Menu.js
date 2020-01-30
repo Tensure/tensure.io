@@ -1,9 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import Typography from '@material-ui/core/Typography';
-import styles from './Navbar.module.scss'
-import logo from './../images/logo-type-white.svg'
-import menuIcon from './../images/menu-icon.svg'
+import styles from './NavBar.module.scss';
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import ContactForm from "../components/UI/ContactForm/Form";
