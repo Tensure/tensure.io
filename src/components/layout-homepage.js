@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Footer from "./footer";
+import Footer from "./footer.js";
 import Hero from "./hero";
-import NavBar from "./navbar";
+import NavBar from "./navbar.js";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
