@@ -181,9 +181,6 @@ const ContactForm = (props, { className }) => {
                 >
                   Submit
                 </Button>
-                <Button type='submit' variant='contained' color='primary'>
-                  Confirm & Send
-                </Button>
               </div>
             </form>
           </Container>

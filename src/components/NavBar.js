@@ -31,7 +31,7 @@ const NavBar = () => {
 
       <Grid container justify="space-between" alignItems="center" spacing={3}>
         <Grid item>
-          <img className={styles.logo} src={ logo } alt="Tensure Logo" />
+          <a href="/"><img className={styles.logo} src={ logo } alt="Tensure Logo" /></a>
         </Grid>
         <Grid item>
           <a onClick={handleClickOpen} className={styles.menuButton}>
