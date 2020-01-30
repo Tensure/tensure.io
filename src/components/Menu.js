@@ -1,10 +1,10 @@
 import { Link } from "gatsby";
 import React from "react";
 import Typography from '@material-ui/core/Typography';
-import styles from './NavBar.module.scss';
+import styles from './navbar.module.scss';
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
-import ContactForm from "../components/UI/ContactForm/Form";
+import ContactForm from "./UI/ContactForm/Form";
 
 
 const Menu = (props) => {
