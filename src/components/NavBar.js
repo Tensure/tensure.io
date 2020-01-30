@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const NavBar = () => {
 
   const [open, setOpen] = React.useState(false);
-  
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -37,7 +37,7 @@ const NavBar = () => {
           <a onClick={handleClickOpen} className={styles.menuButton}>
             <img src={ menuIcon } alt="Tensure Logo" />
           </a>
-          <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+          <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} className={styles.dialog}>
             <Menu handleClickClose={handleClose} />
           </Dialog>
         </Grid>

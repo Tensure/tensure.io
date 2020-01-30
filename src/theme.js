@@ -57,6 +57,11 @@ const rawTheme = createMuiTheme({
           backgroundColor: '#f3f3f3',
         }
       }
+    },
+    MuiDialog: {
+      paperFullScreen: {
+        backgroundColor: '#dddddd',
+      }
     }
   },
 });

@@ -58,7 +58,7 @@ const ContactForm = (props, { className }) => {
             <FormControl fullWidth className={classes.margin} variant='filled'>
               <TextField
                 fullwidth
-                id='standard-basic'
+                variant="outlined"
                 type='text'
                 name='company'
                 style={{marginBottom: 10 }}
@@ -72,6 +72,7 @@ const ContactForm = (props, { className }) => {
               <TextField
                 required
                 id='standard-full-width'
+                variant="outlined"
                 type='text'
                 error={errors.name != ""}
                 name='name'
@@ -86,6 +87,7 @@ const ContactForm = (props, { className }) => {
               <TextField
                 required
                 id='standard-full-width'
+                variant="outlined"
                 type='text'
                 error={errors.phone != ""}
                 placeholder='###-###-####'
@@ -101,6 +103,7 @@ const ContactForm = (props, { className }) => {
               <TextField
                 required
                 id='standard-full-width'
+                variant="outlined"
                 type='email'
                 error={errors.email != ""}
                 aria-label='Email'
@@ -117,6 +120,7 @@ const ContactForm = (props, { className }) => {
               <TextField
                 required
                 id='standard-full-width'
+                variant="outlined"
                 multiline
                 rows='10'
                 error={errors.message != ""}
@@ -130,9 +134,12 @@ const ContactForm = (props, { className }) => {
               ></TextField>
             </FormControl>
             <div className='buttons'>
-              <Button type='submit' variant='contained' color='primary'>
+            <Button fullWidth type='submit' variant="contained" color="primary" size="large">
+              Submit
+            </Button>
+              {/* <Button type='submit' variant='contained' color='primary'>
                 Confirm & Send
-              </Button>
+              </Button> */}
             </div>
           </form>
         </Container>
