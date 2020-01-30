@@ -4,20 +4,12 @@ import validate from "../../Validators/validateForm";
 import { FirebaseContext } from "gatsby-plugin-firebase";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import {
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-  TextField,
-  Input,
-  InputLabel
-} from "@material-ui/core";
-import clsx from "clsx";
+import { FormControl, TextField, InputLabel } from "@material-ui/core";
 
 const styles = theme => ({
   container: {
+    maxWidth: 600,
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(14),
     display: "flex",
@@ -28,18 +20,6 @@ const styles = theme => ({
     display: "flex",
     flexWrap: "wrap"
   },
-  margin: {
-    margin: theme.spacing(1)
-  },
-  withoutLabel: {
-    marginTop: theme.spacing(3)
-  },
-  textField: {
-    width: 500
-  },
-  input: {
-    display: "flex"
-  }
 });
 
 const ContactForm = (props, { className }) => {
@@ -66,123 +46,95 @@ const ContactForm = (props, { className }) => {
   return (
     <div>
       {/* {!isSubmitted ? ( */}
-      <section className='section'>
+      <section>
         <Container className={classes.container}>
-          <div>
-            <form
-              id='contact-form'
-              onSubmit={event => handleSubmit(event, submit)}
-              noValidate
-              method='post'
-              action='#'
-            >
-              <InputLabel htmlFor='company'>
-                Company
-                <FormControl
-                  fullWidth
-                  className={classes.margin}
-                  variant='filled'
-                >
-                  <TextField
-                    id='standard-basic'
-                    type='text'
-                    className={classes.textField}
-                    name='company'
-                    value={values.company}
-                    onChange={handleInputChange}
-                    noValidate
-                  />
-                </FormControl>
-              </InputLabel>
-              <InputLabel htmlFor='name'>
-                Name*
-                <FormControl
-                  fullWidth
-                  className={classes.margin}
-                  variant='filled'
-                >
-                  <TextField
-                    id='standard-basic'
-                    type='text'
-                    className={classes.textField}
-                    error={errors.name != ""}
-                    name='name'
-                    value={values.name}
-                    onChange={handleInputChange}
-                    helperText={errors.name}
-                  />
-                </FormControl>
-              </InputLabel>
-
-              <InputLabel htmlFor='phone'>
-                Phone*
-                <FormControl
-                  fullWidth
-                  className={classes.margin}
-                  variant='filled'
-                >
-                  <TextField
-                    id='standard-basic'
-                    type='text'
-                    className={classes.textField}
-                    error={errors.phone != ""}
-                    placeholder='###-###-####'
-                    name='phone'
-                    value={values.phone}
-                    onChange={handleInputChange}
-                    helperText={errors.phone}
-                  />
-                </FormControl>
-              </InputLabel>
-
-              <InputLabel htmlFor='exampleInputEmail1'>
-                Email*
-                <FormControl
-                  fullWidth
-                  className={classes.margin}
-                  variant='filled'
-                >
-                  <TextField
-                    type='email'
-                    className={classes.textField}
-                    error={errors.email != ""}
-                    aria-label='Email'
-                    aria-describedby='emailHelp'
-                    name='email'
-                    value={values.email}
-                    onChange={handleInputChange}
-                    helperText={errors.email}
-                  />
-                </FormControl>
-              </InputLabel>
-              <InputLabel htmlFor='message'>
-                Message*
-                <FormControl
-                  fullWidth
-                  className={classes.margin}
-                  variant='filled'
-                >
-                  <TextField
-                    id='standard-multiline-static'
-                    multiline
-                    rows='10'
-                    error={errors.message != ""}
-                    className={classes.textField}
-                    name='message'
-                    value={values.message}
-                    onChange={handleInputChange}
-                    helperText={errors.message}
-                    variant='outlined'
-                  ></TextField>
-                </FormControl>
-              </InputLabel>
-              <div className='buttons'>
-                <Button type='submit' variant='contained' color='primary'>
-                  Confirm & Send
-                </Button>
-              </div>
-            </form>
-          </div>
+          <form
+            id='contact-form'
+            onSubmit={event => handleSubmit(event, submit)}
+            noValidate
+            method='post'
+            action='#'
+          >
+            <FormControl fullWidth className={classes.margin} variant='filled'>
+              <TextField
+                fullwidth
+                id='standard-basic'
+                type='text'
+                name='company'
+                style={{marginBottom: 10 }}
+                value={values.company}
+                label='Company name'
+                onChange={handleInputChange}
+                noValidate
+              />
+            </FormControl>
+            <FormControl fullWidth className={classes.margin} variant='filled'>
+              <TextField
+                required
+                id='standard-full-width'
+                type='text'
+                error={errors.name != ""}
+                name='name'
+                style={{marginBottom: 10 }}
+                label='Full name'
+                value={values.name}
+                onChange={handleInputChange}
+                helperText={errors.name}
+              />
+            </FormControl>
+            <FormControl fullWidth className={classes.margin} variant='filled'>
+              <TextField
+                required
+                id='standard-full-width'
+                type='text'
+                error={errors.phone != ""}
+                placeholder='###-###-####'
+                name='phone'
+                style={{marginBottom: 10 }}
+                label='Phone number'
+                value={values.phone}
+                onChange={handleInputChange}
+                helperText={errors.phone}
+              />
+            </FormControl>
+            <FormControl fullWidth className={classes.margin} variant='filled'>
+              <TextField
+                required
+                id='standard-full-width'
+                type='email'
+                error={errors.email != ""}
+                aria-label='Email'
+                aria-describedby='emailHelp'
+                name='email'
+                style={{marginBottom: 10 }}
+                value={values.email}
+                label='Email address'
+                onChange={handleInputChange}
+                helperText={errors.email}
+              />
+            </FormControl>
+            <FormControl fullWidth className={classes.margin} variant='filled'>
+              <TextField
+                required
+                id='standard-full-width'
+                multiline
+                rows='10'
+                error={errors.message != ""}
+                name='message'
+                style={{marginBottom: 10 }}
+                value={values.message}
+                label='How can we help you?'
+                onChange={handleInputChange}
+                helperText={errors.message}
+                variant='outlined'
+              ></TextField>
+            </FormControl>
+            <div className='buttons'>
+              <Button type='submit' variant='contained' color='primary'>
+                Confirm & Send
+              </Button>
+            </div>
+          </form>
         </Container>
       </section>
       {/* // ) : (
