@@ -17,6 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const NavBar = () => {
 
   const [open, setOpen] = React.useState(false);
+  
   const handleClickOpen = () => {
     setOpen(true);
   };

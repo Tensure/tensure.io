@@ -14,5 +14,11 @@
 }
 .menuButton {
     cursor: pointer;
+    display: block;
     text-align: right;
+}
+.close {
+    font-size: 48px;
+    font-weight: 700;
+    width: 84px;
 }
