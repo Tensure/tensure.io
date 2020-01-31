@@ -4,18 +4,9 @@ import {
   CardTitle,
   CardBody,
   CardText,
-  Form,
-  FormGroup,
-  Input
 } from "reactstrap";
-import { graphql, StaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import { Link } from "gatsby";
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink
@@ -64,31 +55,4 @@ const SidebarNav = () => (
   </div>
 );
 
-const sidebarQuery = graphql`
-  query sidebarQuery {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 3
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
 export default SidebarNav;

@@ -7,30 +7,37 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "./header";
 import Footer from "./footer";
-import { useStaticQuery, graphql } from "gatsby";
-import layoutStyles from "./layout.module.scss";
+import NavBar from "./navbar";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from '@material-ui/core/Container';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 99%);',
+  },
+  content: {
+    height: '110vh',
+    'padding-top': '150px'
+  }
+}));
 
 const Layout = ({ children, pageTitle }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  const classes = useStyles();
 
   return (
-    <div className={layoutStyles.container}>
-      <div className={layoutStyles.content}>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        {children}
-      </div>
-      <Footer />
+    <div className={classes.root}>
+      <Grid container spacing={0} className={classes.content}>
+        <Grid item xs={12}>
+          <NavBar />
+            <Container>
+              {children}
+            </Container>
+          <Footer />
+        </Grid>
+      </Grid>
     </div>
   );
 };

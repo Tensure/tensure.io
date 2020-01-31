@@ -2,14 +2,21 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import ContactForm from "../components/UI/ContactForm/Form";
-import LayoutHomepage from "../components/layout-homepage"
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from "./../theme";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const Contact = () => {
   return (
-    <LayoutHomepage pageTitle="Contact form">
+    <React.Fragment>
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Layout pageTitle="Contact form">
       <SEO title='Contact'></SEO>
-      <ContactForm />
-    </LayoutHomepage>
+      <ContactForm useWhiteForm={true}/>
+    </Layout>
+    </ThemeProvider>
+  </React.Fragment>
   );
 };
 

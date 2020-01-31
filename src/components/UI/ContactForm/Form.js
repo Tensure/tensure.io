@@ -39,12 +39,18 @@ const styles = theme => ({
   },
   pos: {
     marginBottom: 12
+  },
+  whiteform: {
+    background: 'white',
+    padding: '24px',
+    'border-radius': '4px'
   }
 });
 
 const ContactForm = (props, { className }) => {
   const { classes } = props;
-
+  const useWhiteForm = props.useWhiteForm;
+  debugger;
   const { handleInputChange, handleSubmit, values, errors } = useForm(
     submit,
     validate
@@ -73,11 +79,13 @@ const ContactForm = (props, { className }) => {
               noValidate
               method='post'
               action='#'
+              className={useWhiteForm ? classes.whiteform : null}
             >
               <FormControl
                 fullWidth
                 className={classes.margin}
                 variant='filled'
+                id='company-name'
               >
                 <TextField
                   variant='outlined'
@@ -168,7 +176,6 @@ const ContactForm = (props, { className }) => {
                   label='How can we help you?'
                   onChange={handleInputChange}
                   helperText={errors.message}
-                  variant='outlined'
                 ></TextField>
               </FormControl>
               <div className='buttons'>
@@ -180,9 +187,6 @@ const ContactForm = (props, { className }) => {
                   size='large'
                 >
                   Submit
-                </Button>
-                <Button type='submit' variant='contained' color='primary'>
-                  Confirm & Send
                 </Button>
               </div>
             </form>
