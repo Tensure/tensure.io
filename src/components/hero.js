@@ -11,7 +11,7 @@ const backgroundImage =
 
 const styles = theme => ({
   hero: {
-    minHeight: '100vh',
+    minHeight: 820,
     display: 'flex',
     backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 99%);',
     color: theme.palette.common.white,
@@ -20,7 +20,6 @@ const styles = theme => ({
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
       height: '110vh',
-      minHeight: 500,
       maxHeight: 900,
     },
   },
@@ -64,7 +63,7 @@ const Hero = (props, {className}) => {
           component="a"
           href="/premium-themes/onepirate/sign-up/"
         >
-          make ‘em black out
+          black out
         </Button>
       </Container>
     </section>
