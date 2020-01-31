@@ -40,8 +40,8 @@ const styles = theme => ({
     alignItems: 'center',
   },
   logo: {
-    marginTop: theme.spacing(50),
-    marginBottom: theme.spacing(14),
+    marginTop: theme.spacing(10),
+    marginBottom: theme.spacing(10),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
