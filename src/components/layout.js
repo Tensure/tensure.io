@@ -8,7 +8,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Header from "./header";
-import Footer from "./footer.js";
+import Footer from "./footer";
 import { useStaticQuery, graphql } from "gatsby";
 import layoutStyles from "./layout.module.scss";
 
