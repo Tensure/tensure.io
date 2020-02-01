@@ -13,7 +13,7 @@ const styles = theme => ({
   hero: {
     minHeight: 820,
     display: 'flex',
-    backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 99%);',
+    // backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 99%);',
     color: theme.palette.common.white,
     position: 'relative',
     display: 'flex',

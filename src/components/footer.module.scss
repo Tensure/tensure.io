@@ -1,8 +1,8 @@
 @import "../styles/variables.scss";
 
 .sample {
-  min-height: 2000px;
-  background-position: center 32%;
+  min-height: 1000px;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: 370%;
   color: white;
@@ -15,7 +15,10 @@
 }
 
 .sample-content {
-  margin: 160px auto;
+  margin: auto;
+  @media (min-width: 600px) {
+    margin: 160px auto;
+  }
 }
 
 .h5 {
@@ -26,9 +29,9 @@
   font-weight: 600;
 }
 
-.h1 {
-  margin-top: 256px;
-  margin-bottom: 32px;
+.heading {
+  margin-top: 256px !important;
+  margin-bottom: 32px !important;
 }
 
 .container {

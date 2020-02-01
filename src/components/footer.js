@@ -7,13 +7,12 @@ import sampleWork from "../images/tensure-work-samples.png"
 import stackedLogo from "../images/logo-stacked-white.svg"
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
-import { green } from "@material-ui/core/colors";
 
 const Footer = ({ className }) => {
 
 
   const divStyle = {
-    backgroundImage: `linear-gradient(0deg, #002A49 10%, rgba(216,216,216,0.00) 80%), URL(${backgroundLogo})`
+    backgroundImage: `URL(${backgroundLogo})`
   };
 
   return (
@@ -34,7 +33,7 @@ const Footer = ({ className }) => {
         </Grid>
         <Grid item xs={12}>
           <Container className={styles.container} maxWidth="lg">
-            <Typography color="inherit" align="center" variant="h1" marked="center" className={styles.h1}>
+            <Typography color="inherit" align="center" variant="h1" marked="center" className={styles.heading}>
               Let's Blow Some Minds?
             </Typography>
             <Button

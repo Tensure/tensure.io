@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import styled from "styled-components";
-import LayoutHomepage from "../components/layout-homepage";
 import BackgroundImage from "gatsby-background-image";
 import "../styles/index.scss";
 import { ThemeProvider } from '@material-ui/core/styles';
