@@ -1,25 +1,40 @@
 import React from "react";
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post";
-import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 import PaginationLinks from "../components/PaginationLinks";
 import SidebarNav from "../components/SidebarNav"
+import LayoutHomepage from "../components/layout-homepage";
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
 const BlogPage = () => {
+  const classes = useStyles();
+  
   const postsPerPage = 3;
   let numberOfPages;
   return (
-    <Layout pageTitle='TensureBlog'>
+    <LayoutHomepage pageTitle='TensureBlog'>
       <SEO title='Blog'></SEO>
-      <div className='container'>
-        <Row>
-          <Col md='3'>
+      <Container className={classes.root}>
+        <Grid container spacing={3}>
+          <Grid item xs={3}>
             <SidebarNav></SidebarNav>
-          </Col>
-          <Col md='6'>
+          </Grid>
+          <Grid item xs={6}>
             <StaticQuery
               query={indexQuery}
               render={data => {
@@ -46,13 +61,13 @@ const BlogPage = () => {
               }}
             />
               <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
-          </Col>
-          <Col md='3'>
+          </Grid>
+          <Grid item xs={3}>
             <Sidebar />
-          </Col>
-        </Row>
-      </div>
-    </Layout>
+          </Grid>
+        </Grid>
+      </Container>
+    </LayoutHomepage>
   );
 };
 

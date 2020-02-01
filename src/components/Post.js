@@ -1,36 +1,73 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Badge, Card, CardTitle, CardText, CardSubtitle, CardBody } from "reactstrap";
-import {slugify } from '../util/utilityFunctions'
+import { slugify } from "../util/utilityFunctions";
+import Card from "@material-ui/core/Card";
+import { makeStyles } from "@material-ui/core/styles";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardActionArea from "@material-ui/core/CardActionArea";
 import Img from "gatsby-image";
+import Chip from '@material-ui/core/Chip';
 
-const Post = ({ title, author, slug, date, body, fluid, tags}) => {
+const useStyles = makeStyles({
+  root: {
+    flexrow: 1
+  },
+  card: {
+    maxWidth: 1000,
+    marginBottom: 10
+  },
+  media: {
+    height: 140
+  },
+  link: {
+    textDecoration: "none"
+  },
+  list: {
+    listStyleType: "none"
+  }
+});
+
+const Post = ({ title, author, slug, date, body, fluid, tags }) => {
+  const classes = useStyles();
+
   return (
-    <Card>
-      <Link to={`/blog/${slug}`}>
-        <Img className='card-image-top' fluid={fluid} />
-      </Link>
-      <CardBody>
-        <CardTitle>
-          <Link to={`/blog/${slug}`}>{title}</Link>
-        </CardTitle>
-        <CardSubtitle>
-          <span className='text-info'>{date}</span> by{" "}
-          <span className='text-info'>{author}</span>
-        </CardSubtitle>
-        <CardText>{body}</CardText>
-          <ul className="post-tags">
-            {tags.map(tag => (
-            <li key={tag}>
-              <Link to={`/tag/${slugify(tag)}`}>
-                <Badge color="primary" className="text-uppercase">{tag}</Badge>
-              </Link>
-            </li>))}
-          </ul>
-        <Link to={`/blog/${slug}`} className='btn btn-outline-primary float-right'>
-          Read more
+    <Card className={classes.card}>
+      <CardActionArea>
+        <Link to={`/blog/${slug}`}>
+          <Img fluid={fluid} />
         </Link>
-      </CardBody>
+        <CardContent>
+          <Typography gutterBottom variant='h5' component='h2'>
+            <Link className={classes.link} to={`/blog/${slug}`}>
+              {title}
+            </Link>
+          </Typography>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            <span>{date}</span> by <span>{author}</span>
+            {body}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <ul className={classes.list}>
+          {tags.map(tag => (
+            <li key={tag}>
+              <Link className={classes.link} to={`/tag/${slugify(tag)}`}>
+                <Chip label={tag} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link className={classes.link} to={`/blog/${slug}`}>
+          <Button size='small' variant='outlined' color='primary'>
+            Read More
+          </Button>
+        </Link>
+      </CardActions>
     </Card>
   );
 };
