@@ -7,7 +7,6 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Img from "gatsby-image";
 import Chip from '@material-ui/core/Chip';
@@ -17,8 +16,7 @@ const useStyles = makeStyles({
     flexrow: 1
   },
   card: {
-    maxWidth: 1000,
-    marginBottom: 10
+    marginBottom: 15
   },
   media: {
     height: 140
@@ -57,7 +55,7 @@ const Post = ({ title, author, slug, date, body, fluid, tags }) => {
           {tags.map(tag => (
             <li key={tag}>
               <Link className={classes.link} to={`/tag/${slugify(tag)}`}>
-                <Chip label={tag} />
+                <Chip label={tag} color="primary"/>
               </Link>
             </li>
           ))}

@@ -7,6 +7,21 @@ module.exports = {
     author: `Tensure Consulting, Inc.`
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-firebase',
+      options: {
+        credential: require("./firebase-key.json"),
+        databaseURL: "https://tensuredotio.firebaseio.com",
+        types: [
+          {
+            type: "Posts",
+            path: "text/posts",
+          }
+        ]
+      }
+    }
+  ],
+  plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -19,16 +34,16 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`
+        path: `${__dirname}/src/pages`
       }
     },
     {
-      resolve: "gatsby-plugin-firebase",
+      resolve: `gatsby-plugin-firebase`,
       options: {
         features: {
-          auth: false,
-          database: false,
-          firestore: true,
+          auth: true,
+          database: true,
+          firestore: false,
           storage: false,
           messaging: false,
           functions: true,
