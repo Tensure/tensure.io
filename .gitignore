@@ -18,3 +18,5 @@ public/
 .env.development
 .env.production
 .env
+
+firebase-key.json
