@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React from "react";
 import Typography from '@material-ui/core/Typography';
 import styles from './navbar.module.scss';
@@ -50,7 +49,7 @@ const Menu = (props) => {
           </Button>
         </Grid>
         <Grid item>
-          <Button color="secondary" href="/contact">
+          <Button color="secondary" href="#company-name">
             <Typography color="inherit" align="center" variant="h1" marked="center">
               Contact
             </Typography>

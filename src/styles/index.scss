@@ -5,3 +5,12 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+body {
+    background-image: linear-gradient(180deg, #04B8A6 0px, rgba(216,216,216,0.00) 800px),
+    linear-gradient(0deg, #002A49 0px, rgba(216,216,216,0.00) 1800px);
+    @media (min-width: 415px) {
+        background-image: linear-gradient(180deg, #04B8A6 0px, rgba(216,216,216,0.00) 1000px),
+        linear-gradient(0deg, #002A49 0px, rgba(216,216,216,0.00) 2000px);
+    } 
+}

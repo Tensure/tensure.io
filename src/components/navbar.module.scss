@@ -1,21 +1,25 @@
 .section {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
     padding: 2rem;
     @media (min-width: 500px) {
         padding: 4rem;
     }
 }
 .logo {
-    
+    max-width: 170px;
+    @media (min-width: 374px) {
+        max-width: initial;
+    } 
 }
 .menuButton {
     cursor: pointer;
     display: block;
     text-align: right;
+    img {
+        max-width: 30px;
+        @media (min-width: 415px) {
+            max-width: initial;
+        } 
+    }
 }
 .close {
     font-size: 48px;

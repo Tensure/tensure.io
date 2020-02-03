@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useForm from "../../Hooks/useForm";
 import validate from "../../Validators/validateForm";
 import { FirebaseContext } from "gatsby-plugin-firebase";
-import { withStyles } from "@material-ui/core/styles";
+import formStyles from './form.module.scss';
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import {
@@ -13,37 +13,8 @@ import {
   Typography
 } from "@material-ui/core";
 
-const styles = theme => ({
-  container: {
-    maxWidth: 600,
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(14),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
-  },
-  root: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  card: {
-    minWidth: 275
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 20
-  },
-  pos: {
-    marginBottom: 12
-  }
-});
-
-const ContactForm = (props, { className }) => {
-  const { classes } = props;
+const ContactForm = (props) => {
+  const useWhiteForm = props.useWhiteForm;
 
   const { handleInputChange, handleSubmit, values, errors } = useForm(
     submit,
@@ -66,18 +37,19 @@ const ContactForm = (props, { className }) => {
     <div>
       {!isSubmitted ? (
         <section>
-          <Container className={classes.container}>
+          <Container className={formStyles.container}>
             <form
               id='contact-form'
               onSubmit={event => handleSubmit(event, submit)}
               noValidate
               method='post'
               action='#'
+              className={useWhiteForm ? formStyles.whiteForm: null}
             >
               <FormControl
                 fullWidth
-                className={classes.margin}
                 variant='filled'
+                id='company-name'
               >
                 <TextField
                   variant='outlined'
@@ -92,7 +64,6 @@ const ContactForm = (props, { className }) => {
               </FormControl>
               <FormControl
                 fullWidth
-                className={classes.margin}
                 variant='filled'
               >
                 <TextField
@@ -111,7 +82,6 @@ const ContactForm = (props, { className }) => {
               </FormControl>
               <FormControl
                 fullWidth
-                className={classes.margin}
                 variant='filled'
               >
                 <TextField
@@ -131,7 +101,6 @@ const ContactForm = (props, { className }) => {
               </FormControl>
               <FormControl
                 fullWidth
-                className={classes.margin}
                 variant='filled'
               >
                 <TextField
@@ -152,7 +121,6 @@ const ContactForm = (props, { className }) => {
               </FormControl>
               <FormControl
                 fullWidth
-                className={classes.margin}
                 variant='filled'
               >
                 <TextField
@@ -181,20 +149,18 @@ const ContactForm = (props, { className }) => {
                 >
                   Submit
                 </Button>
-                <Button type='submit' variant='contained' color='primary'>
-                  Confirm & Send
-                </Button>
               </div>
             </form>
           </Container>
         </section>
       ) : (
         <section className='section'>
-          <Container className='container'>
-            <Card className={classes.card} variant='outlined'>
+          <Container className={formStyles.container}>
+            <Card className={formStyles.card} variant='outlined'>
               <CardContent>
                 <Typography
-                  className={classes.title}
+                  variant="h5 subtitle1"
+                  component="h1"
                   color='textSecondary'
                   gutterBottom
                 >
@@ -211,4 +177,4 @@ const ContactForm = (props, { className }) => {
     </div>
   );
 };
-export default withStyles(styles)(ContactForm);
+export default ContactForm;

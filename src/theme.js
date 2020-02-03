@@ -1,28 +1,44 @@
 import { green, grey, red } from '@material-ui/core/colors';
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+
+const fonts = {
+  fontFamily: [
+    "benton-sans",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    '"Segoe UI"',
+    "Roboto",
+    '"Helvetica Neue"',
+    "Arial",
+    "sans-serif",
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"'
+  ].join(","),
+  fontFamilySecondary: [
+    "benton-sans-wide",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    '"Segoe UI"',
+    "Roboto",
+    '"Helvetica Neue"',
+    "Arial",
+    "sans-serif",
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"'
+  ].join(","),
+};
 
 // A custom theme for this app
 const rawTheme = createMuiTheme({
   typography: {
-    fontFamily: [
-      "benton-sans-wide",
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
-    ].join(","),
-    fontSize: 14,
+    fontFamily: fonts.fontFamily,
+    fontFamilySecondary: fonts.fontFamilySecondary,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 600,
     fontWeightBold: 700,
-    fontFamilySecondary: "benton-sans-wide"
   },
   palette: {
     primary: {
@@ -32,12 +48,6 @@ const rawTheme = createMuiTheme({
     secondary: {
       main: "#002A49"
     },
-    error: {
-      main: red.A400
-    },
-    background: {
-      default: "#F3F3F3"
-    }
   },
   overrides: {
     MuiButton: {
@@ -45,22 +55,23 @@ const rawTheme = createMuiTheme({
         borderRadius: 2,
         padding: '0 30px',
         fontWeight: '700',
+        fontFamily: fonts.fontFamilySecondary
       },
       sizeLarge: {
-        fontSize: '18px',
+        // fontSize: '18px',
         padding: '26px 38px'
       }
     },
     MuiCssBaseline: {
       '@global': {
         body: {
-          backgroundColor: '#f3f3f3',
+          backgroundColor: '#F3F3F3',
         }
       }
     },
     MuiDialog: {
       paperFullScreen: {
-        backgroundColor: '#dddddd',
+        backgroundColor: '#DDDDDD',
       }
     }
   },
@@ -68,9 +79,10 @@ const rawTheme = createMuiTheme({
 
 const fontHeader = {
   color: rawTheme.palette.text.primary,
-  fontWeight: rawTheme.typography.fontWeightBold,
   fontFamily: rawTheme.typography.fontFamilySecondary,
+  fontWeight: rawTheme.typography.fontWeightBold,
   textTransform: 'uppercase',
+  letterSpacing: 6.5
 };
 
 const theme = {
@@ -85,53 +97,40 @@ const theme = {
   },
   typography: {
     ...rawTheme.typography,
-    fontHeader,
     h1: {
       ...rawTheme.typography.h1,
       ...fontHeader,
-      letterSpacing: '6.5px',
-      fontSize: 51,
+      fontSize: 3.5,
     },
     h2: {
       ...rawTheme.typography.h2,
       ...fontHeader,
-      letterSpacing: '6.5px',
-      fontSize: 48,
+      fontSize: 3,
     },
     h3: {
       ...rawTheme.typography.h3,
       ...fontHeader,
-      fontSize: 42,
+      fontSize: 2.5,
     },
     h4: {
       ...rawTheme.typography.h4,
       ...fontHeader,
-      fontSize: 36,
     },
     h5: {
       ...rawTheme.typography.h5,
-      fontSize: 22,
       fontWeight: rawTheme.typography.fontWeightRegular,
     },
     h6: {
       ...rawTheme.typography.h6,
       ...fontHeader,
-      fontSize: 18,
-    },
-    subtitle1: {
-      ...rawTheme.typography.subtitle1,
-      fontSize: 18,
-    },
-    body1: {
-      ...rawTheme.typography.body2,
       fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 16,
-    },
-    body2: {
-      ...rawTheme.typography.body1,
-      fontSize: 14,
-    },
-  },
+    }
+  }
 };
 
-export default theme;
+let options = {
+  factor: 2
+}
+const themeResponsive = responsiveFontSizes(theme, options);
+
+export default themeResponsive;

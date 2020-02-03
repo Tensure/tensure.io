@@ -1,15 +1,16 @@
 import React from "react";
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import ContactForm from "../components/UI/ContactForm/Form";
-import LayoutHomepage from "../components/layout-homepage"
+import Layout from "../components/layout"
+import Typography from '@material-ui/core/Typography';
+import styles from "./contact.module.scss"
 
 const Contact = () => {
   return (
-    <LayoutHomepage pageTitle="Contact form">
+    <Layout pageTitle="Contact form">
       <SEO title='Contact'></SEO>
-      <ContactForm />
-    </LayoutHomepage>
+      <ContactForm useWhiteForm={true}/>
+    </Layout>
   );
 };
 
