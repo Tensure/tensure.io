@@ -23,16 +23,33 @@ const NavBar = () => {
     setOpen(false);
   };
 
+  const handleOpenContact = () => {
+    setOpen(true);
+    const el = document.getElementById('')
+  }
+
+  useEffect(() => {
+    // Bind the event listener
+    document.addEventListener("opencontact", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("opencontact", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className={styles.section}>
 
       <Grid container justify="space-between" alignItems="center" spacing={3}>
         <Grid item>
-          <img className={styles.logo} src={ logo } alt="Tensure Logo" />
+          <a href="/">
+            <img className={styles.logo} src={logo} alt="Tensure Logo" />
+          </a>
         </Grid>
+        
         <Grid item>
           <a onClick={handleClickOpen} className={styles.menuButton}>
-            <img src={ menuIcon } alt="Tensure Logo" />
+            <img src={menuIcon} alt="hamburger-menu" />
           </a>
           <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} className={styles.dialog}>
             <Menu handleClickClose={handleClose} />
