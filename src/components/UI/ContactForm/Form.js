@@ -43,10 +43,12 @@ const ContactForm = () => {
               noValidate
               method='post'
               action='#'
+              className={useWhiteForm ? classes.whiteform: null}
             >
               <FormControl
                 fullWidth
                 variant='filled'
+                id='company-name'
               >
                 <TextField
                   variant='outlined'

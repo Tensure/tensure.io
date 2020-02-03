@@ -67,7 +67,7 @@ const SinglePost = ({ data, pageContext }) => {
               <li>
                 <a
                   href={
-                    "https://www.twitter.com/share?url=" + baseUrl + pageContext.slug + '&text=' + post.title + '&via' + 'twitterHandle'
+                    `https://www.twitter.com/share?url=${baseUrl}${pageContext.slug}&text=${post.title}&viatwitterHandle`
                   }
                   className='twitter'
                   target='_blank'

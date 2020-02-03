@@ -9,13 +9,7 @@ const Contact = () => {
   return (
     <Layout pageTitle="Contact form">
       <SEO title='Contact'></SEO>
-      <Typography className={styles.heading} align="center" variant="h1" marked="center">
-          We're here for you
-        </Typography>
-        <Typography align="center" variant="h5" className={styles.h5}>
-          Put something here about building digital products? that <br /> will make their custies straight black out.
-        </Typography>
-      <ContactForm />
+      <ContactForm useWhiteForm={true}/>
     </Layout>
   );
 };
