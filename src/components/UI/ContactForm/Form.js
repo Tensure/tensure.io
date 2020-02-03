@@ -13,7 +13,8 @@ import {
   Typography
 } from "@material-ui/core";
 
-const ContactForm = () => {
+const ContactForm = (props) => {
+  const useWhiteForm = props.useWhiteForm;
 
   const { handleInputChange, handleSubmit, values, errors } = useForm(
     submit,
@@ -43,7 +44,7 @@ const ContactForm = () => {
               noValidate
               method='post'
               action='#'
-              className={useWhiteForm ? classes.whiteform: null}
+              className={useWhiteForm ? formStyles.whiteForm: null}
             >
               <FormControl
                 fullWidth
