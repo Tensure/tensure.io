@@ -39,12 +39,17 @@ const styles = theme => ({
   },
   pos: {
     marginBottom: 12
+  },
+  whiteform: {
+    background: 'white',
+    padding: '24px',
+    'border-radius': '4px'
   }
 });
 
 const ContactForm = (props, { className }) => {
   const { classes } = props;
-
+  const useWhiteForm = props.useWhiteForm;
   const { handleInputChange, handleSubmit, values, errors } = useForm(
     submit,
     validate
@@ -73,6 +78,7 @@ const ContactForm = (props, { className }) => {
               noValidate
               method='post'
               action='#'
+              className={useWhiteForm ? classes.whiteform: null}
             >
               <FormControl
                 fullWidth
