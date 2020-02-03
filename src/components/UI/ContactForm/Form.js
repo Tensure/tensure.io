@@ -84,6 +84,7 @@ const ContactForm = (props, { className }) => {
                 fullWidth
                 className={classes.margin}
                 variant='filled'
+                id='company-name'
               >
                 <TextField
                   variant='outlined'
