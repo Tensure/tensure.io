@@ -1,13 +1,9 @@
-import { Link } from "gatsby";
 import React from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
-const backgroundImage =
-  'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80';
 
 const styles = theme => ({
   hero: {
@@ -16,7 +12,6 @@ const styles = theme => ({
     // backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 99%);',
     color: theme.palette.common.white,
     position: 'relative',
-    display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
       height: '110vh',

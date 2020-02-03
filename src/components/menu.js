@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React from "react";
 import Typography from '@material-ui/core/Typography';
 import styles from './navbar.module.scss';
