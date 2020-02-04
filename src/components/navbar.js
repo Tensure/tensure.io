@@ -1,13 +1,10 @@
-import { Link } from "gatsby";
 import React from "react";
-import Typography from '@material-ui/core/Typography';
 import styles from './navbar.module.scss';
 import logo from './../images/logo-type-white.svg';
 import menuIcon from './../images/menu-icon.svg';
 import Grid from "@material-ui/core/Grid";
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
-import Button from '@material-ui/core/Button';
 import Menu from './menu'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -31,7 +28,7 @@ const NavBar = () => {
 
       <Grid container justify="space-between" alignItems="center" spacing={3}>
         <Grid item>
-          <img className={styles.logo} src={ logo } alt="Tensure Logo" />
+          <a href="/"><img className={styles.logo} src={ logo } alt="Tensure Logo" /></a>
         </Grid>
         <Grid item>
           <a onClick={handleClickOpen} className={styles.menuButton}>

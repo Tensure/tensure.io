@@ -4,18 +4,10 @@ import {
   CardTitle,
   CardBody,
   CardText,
-  Form,
-  FormGroup,
-  Input
 } from "reactstrap";
-import { graphql, StaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import { Link } from "gatsby";
+import { graphql } from "gatsby";
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink

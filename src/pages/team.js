@@ -5,7 +5,6 @@ import authors from "../util/authors";
 import {
   Col,
   Card,
-  CardText,
   CardBody,
   CardTitle,
   Button,

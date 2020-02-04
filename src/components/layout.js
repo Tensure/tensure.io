@@ -1,42 +1,27 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react";
-import PropTypes from "prop-types";
-import Header from "./header";
 import Footer from "./footer";
-import { useStaticQuery, graphql } from "gatsby";
-import layoutStyles from "./layout.module.scss";
+import NavBar from "./navbar";
+import Grid from "@material-ui/core/Grid";
+import theme from "./../theme";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/core/styles";
 
-
-const Layout = ({ children, pageTitle }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
+const Layout = ({ children }) => {
   return (
-    <div className={layoutStyles.container}>
-      <div className={layoutStyles.content}>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        {children}
-      </div>
-      <Footer />
-    </div>
+    <React.Fragment>
+      <ThemeProvider theme={theme}>
+        <CssBaseline>
+          <Grid container spacing={0}>
+            <Grid item xs={12}>
+              <NavBar />
+              {children}
+              <Footer />
+            </Grid>
+          </Grid>
+        </CssBaseline>
+      </ThemeProvider>
+    </React.Fragment>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired
 };
 
 export default Layout;
