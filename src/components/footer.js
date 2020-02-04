@@ -21,13 +21,11 @@ const Footer = ({ className }) => {
         <Grid item xs={12}>
           <Container className={styles.sampleContent} maxWidth="lg">
             <Typography color="secondary" align="center" variant="h2" marked="center">
-              Services
+              we build to last
             </Typography>
-            <Container maxWidth="md">
-              <Typography color="secondary" align="center" variant="h5" className={styles.h5}>
-                Application Development, Data & AI, Cloud Infrastructure, or Cybersecurity. We don't necessarily do it all, but what we do, we do it better.
-              </Typography>
-            </Container>
+            <Typography color="secondary" align="center" variant="h5" className={styles.h5}>
+              From this to that and everything in between, we aim to<br /> set you up for success.?The best way we’ve found to<br /> make that happen is to BLOW. PEOPLE’S. MINDS.
+            </Typography>
           </Container>
         </Grid>        
         <Grid item xs={12}>
@@ -36,7 +34,7 @@ const Footer = ({ className }) => {
         <Grid item xs={12}>
           <Container className={styles.container} maxWidth="lg">
             <Typography color="inherit" align="center" variant="h1" marked="center" className={styles.heading}>
-              Let's build better together
+              Let's Blow Some Minds?
             </Typography>
             <Button
               color="primary"
