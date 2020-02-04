@@ -44,7 +44,7 @@ const ContactForm = (props) => {
               noValidate
               method='post'
               action='#'
-              className={useWhiteForm ? formStyles.whiteForm : null}
+              className={useWhiteForm ? formStyles.whiteform : null}
             >
               <FormControl
                 fullWidth

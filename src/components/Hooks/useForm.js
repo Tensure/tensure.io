@@ -24,6 +24,7 @@ const useForm = (callback, validate) => {
       ...values,
       [name]: value
     });
+    setErrors(validate(values));
   };
 
   const handleSubmit = (e) => {
