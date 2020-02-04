@@ -1,6 +1,11 @@
 export default function validateForm(values) {
-  let errors = {};
-  
+  let errors = {
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  };
+
   if (!values.name) {
     errors.name = "Your full name is required";
   } else if (values.name.length < 3) {

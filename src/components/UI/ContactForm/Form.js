@@ -71,7 +71,7 @@ const ContactForm = (props) => {
                   id='standard-full-width'
                   variant='outlined'
                   type='text'
-                  error={errors.name != null}
+                  error={errors.name != ""}
                   name='name'
                   style={{ marginBottom: 10 }}
                   label='Full name'
@@ -89,7 +89,7 @@ const ContactForm = (props) => {
                   id='standard-full-width'
                   variant='outlined'
                   type='text'
-                  error={errors.phone != null}
+                  error={errors.phone != ""}
                   placeholder='###-###-####'
                   name='phone'
                   style={{ marginBottom: 10 }}
@@ -108,7 +108,7 @@ const ContactForm = (props) => {
                   id='standard-full-width'
                   variant='outlined'
                   type='email'
-                  error={errors.email != null}
+                  error={errors.email != ""}
                   aria-label='Email'
                   aria-describedby='emailHelp'
                   name='email'
@@ -129,7 +129,7 @@ const ContactForm = (props) => {
                   variant='outlined'
                   multiline
                   rows='10'
-                  error={errors.message != null}
+                  error={errors.message != ""}
                   name='message'
                   style={{ marginBottom: 10 }}
                   value={values.message}
