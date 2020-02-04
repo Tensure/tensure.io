@@ -45,11 +45,17 @@ const Hero = (props, {className}) => {
     <section className={classes.hero}>
       <Container className={classes.container} maxWidth="lg">
         <Typography color="inherit" align="center" variant="h1" marked="center">
-          We're Fully Stacked
+          Let's build better together
         </Typography>
-        <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
-          Put something here about building digital products? that <br /> will make their custies straight black out.
-        </Typography>
+        <Container maxWidth="md">
+          <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
+            Tensure was born out of a simple idea: "What if it was better?"
+            Better means giving our team the flexibility to succeed in their career and lives.
+            Better means changing lives by training people in our community who don't have a technical background.
+            Better means solving our customers' problems, not padding our bottom line.
+            We looked at what people called the best and asked "what if it was better?"
+          </Typography>
+        </Container>
         <Button
           color="primary"
           variant="contained"
@@ -58,7 +64,7 @@ const Hero = (props, {className}) => {
           component="a"
           href="#"
         >
-          black out
+          Contact Us
         </Button>
       </Container>
     </section>
