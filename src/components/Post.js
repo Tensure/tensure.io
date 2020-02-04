@@ -9,7 +9,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Img from "gatsby-image";
-import Chip from '@material-ui/core/Chip';
+import Chip from "@material-ui/core/Chip";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
@@ -22,10 +23,15 @@ const useStyles = makeStyles({
     height: 140
   },
   link: {
-    textDecoration: "none"
+    textDecoration: "none",
+    marginRight: 0,
+    marginLeft: 1
   },
   list: {
-    listStyleType: "none"
+    listStyleType: "none",
+    display: "flex",
+    flexDirection: "row"
+
   }
 });
 
@@ -51,20 +57,26 @@ const Post = ({ title, author, slug, date, body, fluid, tags }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <ul className={classes.list}>
-          {tags.map(tag => (
-            <li key={tag}>
-              <Link className={classes.link} to={`/tag/${slugify(tag)}`}>
-                <Chip label={tag} color="primary"/>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Link className={classes.link} to={`/blog/${slug}`}>
-          <Button size='small' variant='outlined' color='primary'>
-            Read More
-          </Button>
-        </Link>
+        <Grid container spacing={3}>
+          <Grid item xs={9}>
+            <ul className={classes.list}>
+              {tags.map(tag => (
+                <li key={tag}>
+                  <Link className={classes.link} to={`/tag/${slugify(tag)}`}>
+                    <Chip clickable label={tag} color='primary' />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Grid>
+          <Grid item xs={3}>
+            <Link className={classes.link} to={`/blog/${slug}`}>
+              <Button size='small' variant='outlined' color='primary' right>
+                Read More
+              </Button>
+            </Link>
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   );

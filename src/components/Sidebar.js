@@ -1,17 +1,23 @@
 import React from 'react'
-import { Card, CardTitle, CardBody, CardText, Form, FormGroup, Input } from 'reactstrap'
+import { CardTitle, CardBody, CardText, Form, FormGroup, Input } from 'reactstrap'
+import { Card,
+  CardContent,
+  FormControl,
+  TextField,
+  Typography,
+  CardActionArea } from '@material-ui/core'
 import {graphql, StaticQuery} from 'gatsby';
 import Img from 'gatsby-image'
 import { Link } from "gatsby";
-
+import sidebarStyles from './sidebar.module.scss'
 const Sidebar = ({authorImageFluid, postAuthor}) => (
   <div>
     {postAuthor && (
-      <Card>
+      <Card className={sidebarStyles.card}>
         <Img className="card-image-top" fluid={authorImageFluid} />
-        <CardBody>
-          <CardTitle className="text-center text-uppercase mb-2">{postAuthor.name}</CardTitle>
-          <CardText className="text-center mb-2">{postAuthor.bio}</CardText>
+        <CardContent>
+          <Typography className="text-center text-uppercase mb-2">{postAuthor.name}</Typography>
+          <Typography className="text-center mb-2">{postAuthor.bio}</Typography>
           <div className="author-social-links text-center">
             <ul>
               <li><a href={postAuthor.facebook} target="_blank" rel="noopener noreferrer" className="facebook">
@@ -26,59 +32,60 @@ const Sidebar = ({authorImageFluid, postAuthor}) => (
               <i className="fab fa-linkedin fa-lg"></i></a></li>
             </ul>
           </div>
-        </CardBody>
+        </CardContent>
       </Card>
     )}
-    <Card>
-      <CardBody>
-        <CardTitle className="text-center text-uppercase mb-3">
+    <Card className={sidebarStyles.card}>
+      <CardContent>
+        <Typography className="text-center text-uppercase mb-3">
           Newsletter
-        </CardTitle>
-        <Form className="text-center">
-          <FormGroup>
-            <Input
+        </Typography>
+        <form className="text-center">
+          <FormControl>
+            <TextField
             type="email"
             name="name"
-            placeholder="Your email address.."></Input>
-          </FormGroup>
+            placeholder="Your email address.."></TextField>
+          </FormControl>
           <button className="btn btn-outline-success text-uppercase">
             Subscribe
           </button>
-        </Form>
-      </CardBody>
+        </form>
+      </CardContent>
     </Card>
-    <Card>
-      <CardBody>
-        <CardTitle className="text-center text-uppercase">
+    <Card className={sidebarStyles.card}>
+      <CardContent>
+        <Typography className="text-center text-uppercase">
           Advertisement
-        </CardTitle>
+        </Typography>
         <img src="https://via.placeholder.com/320x200" alt="Advert" style={{width: "100%"}} />
-      </CardBody>
+      </CardContent>
     </Card>
-    <Card>
-      <CardBody>
-        <CardTitle className="text-center text-uppercase mb-3">
+    <Card className={sidebarStyles.card}>
+      <CardContent>
+        <Typography className="text-center text-uppercase mb-3">
           Recent Posts
-        </CardTitle>
+        </Typography>
         <StaticQuery query={sidebarQuery} render={(data) => (
           <div>
             {data.allMarkdownRemark.edges.map(({node}) => (
-              <Card key={node.id}>
+              <Card className={sidebarStyles.card}
+              key={node.id}>
                 <Link to={`/blog/${node.fields.slug}`}>
                   <Img className="card-image-top" fluid={node.frontmatter.image.childImageSharp.fluid}></Img>
                 </Link>
-                <CardBody>
-                  <CardTitle>
+                <CardContent>
+                  <Typography>
                     <Link to={`/blog/${node.fields.slug}`}>
                       {node.frontmatter.title}
                     </Link>
-                  </CardTitle>
-                </CardBody>
+                  </Typography>
+                </CardContent>
               </Card>
             ))}
           </div>
         )}/>
-      </CardBody>
+      </CardContent>
     </Card>
   </div>
 )

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Card,
   CardTitle,
   CardBody,
   CardText,
@@ -8,6 +7,7 @@ import {
   FormGroup,
   Input
 } from "reactstrap";
+import { Card, CardContent, Typography } from '@material-ui/core'
 import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Link } from "gatsby";
@@ -20,16 +20,17 @@ import {
   NavItem,
   NavLink
 } from "reactstrap";
+import sidenavStyles from './sidebarnav.module.scss'
 
 const SidebarNav = () => (
   <div>
-    <Card>
-      <CardBody>
-        <CardTitle className='text-left text-uppercase mb-0'>
+    <Card className={sidenavStyles.card}>
+      <CardContent>
+        <Typography className='text-left text-uppercase mb-0'>
           Navigation
-        </CardTitle>
+        </Typography>
         <Navbar>
-          <Nav vertical>
+          <nav vertical>
             <NavItem>
               <NavLink href='/videos'>Videos</NavLink>
             </NavItem>
@@ -42,24 +43,24 @@ const SidebarNav = () => (
             <NavItem>
               <NavLink href='/tags'>Tags</NavLink>
             </NavItem>
-          </Nav>
+          </nav>
         </Navbar>
-        <CardText className='text-center mb-2'></CardText>
-      </CardBody>
+        <Typography className='text-center mb-2'></Typography>
+      </CardContent>
     </Card>
-    <Card>
-      <CardBody>
-        <CardTitle className='text-center text-uppercase mb-3'>
+    <Card className={sidenavStyles.card}>
+      <CardContent>
+        <Typography className='text-center text-uppercase mb-3'>
           ADVERTISEMENT
-        </CardTitle>
-      </CardBody>
+        </Typography>
+      </CardContent>
     </Card>
-    <Card>
-      <CardBody>
-        <CardTitle className='text-center text-uppercase'>
+    <Card className={sidenavStyles.card}>
+      <CardContent>
+        <Typography className='text-center text-uppercase'>
           TENSURE MERCHANDISE
-        </CardTitle>
-      </CardBody>
+        </Typography>
+      </CardContent>
     </Card>
   </div>
 );
