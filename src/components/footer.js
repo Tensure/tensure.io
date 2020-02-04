@@ -44,7 +44,7 @@ const Footer = ({ className }) => {
               size="large"
               className={styles.button}
               component="a"
-              href="#"
+              href="/contact"
             >Get in touch</Button>
           </Container>
         </Grid>

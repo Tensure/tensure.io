@@ -57,12 +57,12 @@ const Hero = (props, {className}) => {
           </Typography>
         </Container>
         <Button
+          href="/contact"
           color="primary"
           variant="contained"
           size="large"
           className={classes.button}
           component="a"
-          href="#"
         >
           Contact Us
         </Button>
