@@ -1,10 +1,10 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import styles from './hero.module.scss'
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import styles from "./hero.module.scss";
 // const styles = theme => ({
 //   hero: {
 //     minHeight: 820,
@@ -38,27 +38,43 @@ import styles from './hero.module.scss'
 //   },
 // });
 
-const Hero = (props, {className}) => {
+const Hero = (props, { className }) => {
   // const { classes } = props;
 
   return (
     <section className={styles.hero}>
-      <Container className={styles.container} maxWidth="lg">
-        <Typography color="inherit" align="center" variant="h1" marked="center">
-          We're Fully Stacked
-        </Typography>
-        <Typography color="inherit" align="center" variant="h5" className={styles.h5}>
-          Put something here about building digital products? that <br /> will make their custies straight black out.
-        </Typography>
+      <Container className={styles.container} maxWidth='lg'>
+        <Typography
+          color='inherit'
+          align='center'
+          variant='h1'
+          marked='center'
+        ></Typography>
+        <Container maxWidth='md'>
+          <Typography
+            color='inherit'
+            align='center'
+            variant='h5'
+            className={classes.h5}
+          >
+            Tensure was born out of a simple idea: "What if it was better?"
+            Better means giving our team the flexibility to succeed in their
+            career and lives. Better means changing lives by training people in
+            our community who don't have a technical background. Better means
+            solving our customers' problems, not padding our bottom line. We
+            looked at what people called the best and asked "what if it was
+            better?"
+          </Typography>
+        </Container>
         <Button
-          color="primary"
-          variant="contained"
-          size="large"
+          color='primary'
+          variant='contained'
+          size='large'
           className={styles.button}
-          component="a"
-          href="#"
+          component='a'
+          href='#'
         >
-          black out
+          Contact Us
         </Button>
       </Container>
     </section>
