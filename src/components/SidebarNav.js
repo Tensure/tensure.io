@@ -3,19 +3,13 @@ import {
   CardTitle,
   CardBody,
   CardText,
-  Form,
-  FormGroup,
-  Input
 } from "reactstrap";
 import { Card, CardContent, Typography } from '@material-ui/core'
 import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Link } from "gatsby";
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink

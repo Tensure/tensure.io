@@ -42,7 +42,7 @@ const Footer = ({ className }) => {
               size="large"
               className={styles.button}
               component="a"
-              href="/premium-themes/onepirate/sign-up/"
+              href="#"
             >Get in touch</Button>
           </Container>
         </Grid>

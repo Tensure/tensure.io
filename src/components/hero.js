@@ -56,7 +56,7 @@ const Hero = (props, {className}) => {
           size="large"
           className={styles.button}
           component="a"
-          href="/premium-themes/onepirate/sign-up/"
+          href="#"
         >
           black out
         </Button>

@@ -1,5 +1,10 @@
 export default function validateForm(values) {
-  let errors = {};
+  let errors = {
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  };
 
   if (!values.name) {
     errors.name = "Your full name is required";
@@ -9,7 +14,7 @@ export default function validateForm(values) {
 
   if (!values.phone) {
     errors.phone = "Phone number is required";
-  } else if (!/^[2-9]\d{2}-\d{3}-\d{4}$/.test(values.phone)) {
+  } else if (!/^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/.test(values.phone)) {
     errors.phone = "Phone number is invalid";
   }
 

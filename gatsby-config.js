@@ -85,7 +85,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: `src/images/tensure2020_favicon_16x16.png` // This path is relative to the root of the site.
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
