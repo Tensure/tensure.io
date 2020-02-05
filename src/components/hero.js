@@ -55,7 +55,7 @@ const Hero = (props, { className }) => {
             color='inherit'
             align='center'
             variant='h5'
-            className={classes.h5}
+            className={styles.h5}
           >
             Tensure was born out of a simple idea: "What if it was better?"
             Better means giving our team the flexibility to succeed in their
