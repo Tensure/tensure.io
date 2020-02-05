@@ -42,43 +42,33 @@ const Hero = (props, { className }) => {
   // const { classes } = props;
 
   return (
-    <section className={styles.hero}>
-      <Container className={styles.container} maxWidth='lg'>
-        <Typography
-          color='inherit'
-          align='center'
-          variant='h1'
-          marked='center'
-        ></Typography>
-        <Container maxWidth='md'>
-          <Typography
-            color='inherit'
-            align='center'
-            variant='h5'
-            className={styles.h5}
-          >
-            Tensure was born out of a simple idea: "What if it was better?"
-            Better means giving our team the flexibility to succeed in their
-            career and lives. Better means changing lives by training people in
-            our community who don't have a technical background. Better means
-            solving our customers' problems, not padding our bottom line. We
-            looked at what people called the best and asked "what if it was
-            better?"
+      <section className={styles.hero}>
+        <Container className={styles.container} maxWidth="lg">
+          <Typography color="inherit" align="center" variant="h1" marked="center">
+            Let's build better together
           </Typography>
+          <Container maxWidth="md">
+            <Typography color="inherit" align="center" variant="h5" className={styles.h5}>
+              Tensure was born out of a simple idea: "What if it was better?"
+              Better means giving our team the flexibility to succeed in their career and lives.
+              Better means changing lives by training people in our community who don't have a technical background.
+              Better means solving our customers' problems, not padding our bottom line.
+              We looked at what people called the best and asked "what if it was better?"
+            </Typography>
+          </Container>
+          <Button
+            color="primary"
+            variant="contained"
+            size="large"
+            className={styles.button}
+            component="a"
+            href="#"
+          >
+            Contact Us
+          </Button>
         </Container>
-        <Button
-          color='primary'
-          variant='contained'
-          size='large'
-          className={styles.button}
-          component='a'
-          href='#'
-        >
-          Contact Us
-        </Button>
-      </Container>
-    </section>
-  );
+      </section>
+    );
 };
 
 // Hero.propTypes = {
