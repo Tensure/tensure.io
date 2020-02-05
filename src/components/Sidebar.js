@@ -1,41 +1,88 @@
-import React from 'react'
-import { CardTitle, CardBody, CardText, Form, FormGroup, Input } from 'reactstrap'
-import { Card,
+import React from "react";
+import {
+  Button,
+  Card,
   CardContent,
   FormControl,
   TextField,
   Typography,
-  CardActionArea } from '@material-ui/core'
-import {graphql, StaticQuery} from 'gatsby';
-import Img from 'gatsby-image'
+  CardActionArea
+} from "@material-ui/core";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import GithubIcon from "@material-ui/icons/Github";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import { graphql, StaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import { Link } from "gatsby";
-import sidebarStyles from './sidebar.module.scss'
-const Sidebar = ({authorImageFluid, postAuthor}) => (
+import sidebarStyles from "./sidebar.module.scss";
+const Sidebar = ({ authorImageFluid, postAuthor }) => (
   <div>
     {postAuthor && (
       <Card className={sidebarStyles.card}>
-        <Img className="card-image-top" fluid={authorImageFluid} />
+        <Img className='card-image-top' fluid={authorImageFluid} />
         <CardContent>
-          <Typography className="text-center text-uppercase mb-2">{postAuthor.name}</Typography>
-          <Typography className="text-center mb-2">{postAuthor.bio}</Typography>
-          <div className="author-social-links text-center">
-            <ul>
-              <li><a href={postAuthor.facebook} target="_blank" rel="noopener noreferrer" className="facebook">
-              <i className="fab fa-facebook-f fa-lg"></i></a></li>
-              <li><a href={postAuthor.twitter} target="_blank" rel="noopener noreferrer" className="twitter">
-              <i className="fab fa-twitter fa-lg"></i></a></li>
-              <li><a href={postAuthor.github} target="_blank" rel="noopener noreferrer" className="github">
-              <i className="fab fa-github fa-lg"></i></a></li>
-              <li><a href={postAuthor.instagram} target="_blank" rel="noopener noreferrer" className="instagram">
-              <i className="fab fa-instagram fa-lg"></i></a></li>
-              <li><a href={postAuthor.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin">
-              <i className="fab fa-linkedin fa-lg"></i></a></li>
+          <Typography variant='h6'>{postAuthor.name}</Typography>
+          <Typography variant='body1'>{postAuthor.bio}</Typography>
+          <div className={sidebarStyles.social}>
+            <ul className={sidebarStyles.list}>
+              <li>
+                <a
+                  href={postAuthor.facebook}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='facebook'
+                >
+                  <FacebookIcon fontSize='small' color='primary' />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={postAuthor.twitter}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='twitter'
+                >
+                  <TwitterIcon fontSize='small' color='primary' />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={postAuthor.github}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='github'
+                >
+                  <GithubIcon fontSize='small' color='primary' />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={postAuthor.instagram}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='instagram'
+                >
+                  <InstagramIcon fontSize='small' color='primary' />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={postAuthor.linkedin}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='linkedin'
+                >
+                  <LinkedInIcon fontSize='small' color='primary' />
+                </a>
+              </li>
             </ul>
           </div>
         </CardContent>
       </Card>
     )}
-    <Card className={sidebarStyles.card}>
+    {/* <Card className={sidebarStyles.card}>
       <CardContent>
         <Typography className="text-center text-uppercase mb-3">
           Newsletter
@@ -52,69 +99,83 @@ const Sidebar = ({authorImageFluid, postAuthor}) => (
           </button>
         </form>
       </CardContent>
-    </Card>
+    </Card> */}
     <Card className={sidebarStyles.card}>
       <CardContent>
-        <Typography className="text-center text-uppercase">
+        <Typography className='text-center text-uppercase'>
           Advertisement
         </Typography>
-        <img src="https://via.placeholder.com/320x200" alt="Advert" style={{width: "100%"}} />
+        <img
+          src='https://via.placeholder.com/320x200'
+          alt='Advert'
+          style={{ width: "100%" }}
+        />
       </CardContent>
     </Card>
     <Card className={sidebarStyles.card}>
       <CardContent>
-        <Typography className="text-center text-uppercase mb-3">
+        <Typography className='text-center text-uppercase mb-3'>
           Recent Posts
         </Typography>
-        <StaticQuery query={sidebarQuery} render={(data) => (
-          <div>
-            {data.allMarkdownRemark.edges.map(({node}) => (
-              <Card className={sidebarStyles.card}
-              key={node.id}>
-                <Link to={`/blog/${node.fields.slug}`}>
-                  <Img className="card-image-top" fluid={node.frontmatter.image.childImageSharp.fluid}></Img>
-                </Link>
-                <CardContent>
-                  <Typography>
-                    <Link to={`/blog/${node.fields.slug}`}>
-                      {node.frontmatter.title}
-                    </Link>
-                  </Typography>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}/>
+        <StaticQuery
+          query={sidebarQuery}
+          render={data => (
+            <div>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <Card className={sidebarStyles.card} key={node.id}>
+                  <Link to={`/blog/${node.fields.slug}`}>
+                    <Img
+                      className='card-image-top'
+                      fluid={node.frontmatter.image.childImageSharp.fluid}
+                    ></Img>
+                  </Link>
+                  <CardContent>
+                    <Typography>
+                      <Link
+                        className={sidebarStyles.link}
+                        to={`/blog/${node.fields.slug}`}
+                      >
+                        <Button color='primary' size='small'>
+                          {node.frontmatter.title}
+                        </Button>
+                      </Link>
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        />
       </CardContent>
     </Card>
   </div>
-)
+);
 
 const sidebarQuery = graphql`
   query sidebarQuery {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       limit: 3
     ) {
-      edges{
-        node{
+      edges {
+        node {
           id
-          frontmatter{
+          frontmatter {
             title
-            image{
-              childImageSharp{
+            image {
+              childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
           }
-          fields{
+          fields {
             slug
           }
         }
       }
     }
   }
-`
-export default Sidebar
+`;
+export default Sidebar;

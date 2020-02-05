@@ -9,12 +9,11 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Img from "gatsby-image";
-import Chip from "@material-ui/core/Chip";
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
-    flexrow: 1
+    flexGrow: 1
   },
   card: {
     marginBottom: 15
@@ -25,17 +24,18 @@ const useStyles = makeStyles({
   link: {
     textDecoration: "none",
     marginRight: 0,
-    marginLeft: 1
+    marginLeft: 1,
+    color: "black"
   },
   list: {
     listStyleType: "none",
     display: "flex",
-    flexDirection: "row"
-
+    flexDirection: "row",
+    justifyContent: "space-around"
   }
 });
 
-const Post = ({ title, author, slug, date, body, fluid, tags }) => {
+const Post = ({ title, author, slug, date, body, fluid }) => {
   const classes = useStyles();
 
   return (
@@ -45,7 +45,7 @@ const Post = ({ title, author, slug, date, body, fluid, tags }) => {
           <Img fluid={fluid} />
         </Link>
         <CardContent>
-          <Typography gutterBottom variant='h5' component='h2'>
+          <Typography gutterBottom variant='h6' component='h2'>
             <Link className={classes.link} to={`/blog/${slug}`}>
               {title}
             </Link>
@@ -57,19 +57,11 @@ const Post = ({ title, author, slug, date, body, fluid, tags }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Grid container spacing={3}>
-          <Grid item xs={9}>
-            <ul className={classes.list}>
-              {tags.map(tag => (
-                <li key={tag}>
-                  <Link className={classes.link} to={`/tag/${slugify(tag)}`}>
-                    <Chip clickable label={tag} color='primary' />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={4}>
             <Link className={classes.link} to={`/blog/${slug}`}>
               <Button size='small' variant='outlined' color='primary' right>
                 Read More

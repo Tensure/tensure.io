@@ -5,111 +5,124 @@ import SidebarNav from "../components/SidebarNav";
 import Sidebar from "../components/Sidebar";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
-import { Badge, Card, CardBody, CardSubtitle, Row, Col } from "reactstrap";
 import { slugify } from "../util/utilityFunctions";
 import authors from "../util/authors";
+import singlepostStyles from "./single-post.module.scss";
+import {
+  Card,
+  CardContent,
+  Chip,
+  Container,
+  Grid,
+  Typography
+} from "@material-ui/core/";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import TwitterIcon from "@material-ui/icons/Twitter";
 
 const SinglePost = ({ data, pageContext }) => {
   const post = data.markdownRemark.frontmatter;
   const author = authors.find(x => x.name === post.author);
-
-  const baseUrl = "http://gatsbytutorial.co.uk/";
+  const baseUrl = "www.tensure.io";
 
   return (
     <Layout pageTitle={post.title}>
-      <div className='container'>
+      <Container>
         <SEO title={post.title} />
-        <Row>
-          <Col md='3'>
-            <SidebarNav />
-          </Col>
-          <Col md='6'>
+        <Grid container spacing={3}>
+          <Grid item xs={8}>
             <Card>
               <Img
                 className='card-image-top'
                 fluid={post.image.childImageSharp.fluid}
               />
-              <CardBody>
-                <CardSubtitle>
+              <CardContent>
+                <Typography variant="h6">
                   <span className='text-info'>{post.date}</span> by{" "}
                   <span className='text-info'>{post.author}</span>
-                </CardSubtitle>
-                <div
-                  dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-                />
-                <ul className='post-tags'>
+                </Typography>
+                <ul className={singlepostStyles.tags}>
                   {post.tags.map(tag => (
-                    <li key={tag}>
-                      <Link to={`/tag/${slugify(tag)}`}>
-                        <Badge color='primary'>{tag}</Badge>
+                    <li key={tag} className={singlepostStyles.list}>
+                      <Link
+                        to={`/tag/${slugify(tag)}`}
+                        className={singlepostStyles.link}
+                      >
+                        <Chip clickable label={tag} color='primary' />
                       </Link>
                     </li>
                   ))}
                 </ul>
-              </CardBody>
-            </Card>
-            <h1>Share this post</h1>
-            <ul>
-              <li>
+                <div
+                  dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+                />
+              </CardContent>
+              <CardContent>
+                <Typography>Share this post</Typography>
+                <ul className={singlepostStyles.socialpost}>
+                  <li>
+                    <a
+                      href={
+                        "https://www.facebook.com/sharer/sharer.php?u=" +
+                        baseUrl +
+                        pageContext.slug
+                      }
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <FacebookIcon fontSize='large' color='primary' />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`https://www.twitter.com/share?url=${baseUrl}${pageContext.slug}&text=${post.title}&viatwitterHandle`}
+                      className='twitter'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <TwitterIcon fontSize='large' color='primary' />
+                    </a>
+                  </li>
+                  {/* <li>
                 <a
                   href={
-                    "https://www.facebook.com/sharer/sharer.php?u=" +
+                    "https://plus.google.com/share?url=" +
                     baseUrl +
                     pageContext.slug
-                  }
-                  className='facebook'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='fab fa-facebook-f fa-2x'></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={
-                    `https://www.twitter.com/share?url=${baseUrl}${pageContext.slug}&text=${post.title}&viatwitterHandle`
-                  }
-                  className='twitter'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='fab fa-twitter fa-2x'></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={
-                    "https://plus.google.com/share?url=" + baseUrl + pageContext.slug
                   }
                   className='google'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  <i className='fab fa-google fa-2x'></i>
+                  <GoogleIcon />
                 </a>
-              </li>
-              <li>
-                <a
-                  href={
-                    "https://www.linkedin.com/shareArticle?url=" + baseUrl + pageContext.slug
-                  }
-                  className='linkedin'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='fab fa-linkedin fa-2x'></i>
-                </a>
-              </li>
-            </ul>
-          </Col>
-          <Col md='3'>
+              </li> */}
+                  <li>
+                    <a
+                      href={
+                        "https://www.linkedin.com/shareArticle?url=" +
+                        baseUrl +
+                        pageContext.slug
+                      }
+                      className='linkedin'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <LinkedInIcon fontSize='large' color='primary' />
+                    </a>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
             <Sidebar
               postAuthor={author}
               authorImageFluid={data.file.childImageSharp.fluid}
             />
-          </Col>
-        </Row>
-      </div>
+          </Grid>
+        </Grid>
+      </Container>
     </Layout>
   );
 };

@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  flex-grow: 1;
+}
+
+.tags {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.list {
+  margin-right: 1rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.socialpost {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
