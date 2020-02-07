@@ -7,7 +7,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title='Tensure Homepage'></SEO>
-      {/* <Hero /> */}
+      <Hero />
     </Layout>
   );
 };
