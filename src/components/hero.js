@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -7,7 +6,7 @@ import styles from './hero.module.scss'
 
 
 
-const Hero = (props, {className}) => {
+const Hero = () => {
 
   return (
     <section className={styles.hero}>
@@ -35,8 +34,5 @@ const Hero = (props, {className}) => {
   );
 };
 
-Hero.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default Hero;

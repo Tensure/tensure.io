@@ -48,7 +48,7 @@ const Footer = ({ className }) => {
             >Get in touch</Button>
           </Container>
         </Grid>
-        <Grid item xs={12} justify="center">
+        <Grid item xs={12}>
           <Container className={styles.logo} maxWidth="xs">
             <img src={ stackedLogo } alt="Tensure Logo" />
           </Container>
