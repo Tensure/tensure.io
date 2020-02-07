@@ -109,8 +109,13 @@ const theme = {
     },
     h6: {
       ...rawTheme.typography.h6,
-      ...fontHeader,
       fontWeight: rawTheme.typography.fontWeightRegular,
+    },
+    subtitle1: {
+      ...rawTheme.typography.subtitle1,
+      fontWeight: rawTheme.typography.fontWeightMedium,
+      fontSize: 1.4,
+      lineHeight: 1.4
     }
   }
 };
