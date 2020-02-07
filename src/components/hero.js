@@ -38,7 +38,7 @@ import styles from "./hero.module.scss";
 //   },
 // });
 
-const Hero = (props, { className }) => {
+const Hero = ({handleClickOpen}) => {
   // const { classes } = props;
 
   return (
@@ -63,6 +63,7 @@ const Hero = (props, { className }) => {
             className={styles.button}
             component="a"
             href="#"
+            onClick={handleClickOpen}
           >
             Contact Us
           </Button>

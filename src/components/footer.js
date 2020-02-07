@@ -8,7 +8,7 @@ import stackedLogo from "../images/logo-stacked-white.svg"
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 
-const Footer = ({ className }) => {
+const Footer = ({handleClickOpen}) => {
 
 
   const divStyle = {
@@ -45,6 +45,7 @@ const Footer = ({ className }) => {
               className={styles.button}
               component="a"
               href="#"
+              onClick={handleClickOpen}
             >Get in touch</Button>
           </Container>
         </Grid>
