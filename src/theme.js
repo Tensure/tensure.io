@@ -25,6 +25,7 @@ const rawTheme = createMuiTheme({
     fontWeightRegular: 400,
     fontWeightMedium: 600,
     fontWeightBold: 700,
+    fontSize: 16,
   },
   palette: {
     primary: {

@@ -62,7 +62,7 @@ const Hero = (props, {className}) => {
           size="large"
           className={classes.button}
           component="a"
-          href="#"
+          href="/contact"
         >
           Contact Us
         </Button>

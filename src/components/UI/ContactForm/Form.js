@@ -37,7 +37,6 @@ const ContactForm = (props) => {
     <div>
       {!isSubmitted ? (
         <section>
-          <Container className={formStyles.container}>
             <form
               id='contact-form'
               onSubmit={event => handleSubmit(event)}
@@ -151,7 +150,6 @@ const ContactForm = (props) => {
                 </Button>
               </div>
             </form>
-          </Container>
         </section>
       ) : (
           <section className='section'>
