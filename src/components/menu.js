@@ -64,6 +64,18 @@ const Menu = (props) => {
         </Grid>
       </Grid>
 
+      <Grid container justify="center" alignItems="center" spacing={10}>
+        <Grid item xs={6} >
+          <Typography variant="subtitle2" component="p" color="secondary" className={styles.menuAbout}>
+            Tensure was born out of a simple idea: "What if it was better?" Better means giving our team the flexibility to succeed in 
+            their career and lives. Better means changing lives by training people in our community who don't have a technical background. 
+            Better means solving our customers' problems, not padding our bottom line. We looked at what people called the best and asked 
+            "what if it was better?"
+          </Typography>
+        </Grid>
+      </Grid>
+      
+
     </div>
   );
 };

@@ -45,7 +45,7 @@ const Hero = (props, {className}) => {
     <section className={classes.hero}>
       <Container className={classes.container} maxWidth="lg">
         <Typography color="inherit" align="center" variant="h1" marked="center">
-          Let's build better together
+          Building better together
         </Typography>
         <Container maxWidth="md">
           <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
