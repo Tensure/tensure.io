@@ -3,19 +3,6 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
 const fonts = {
   fontFamily: [
-    "benton-sans",
-    "-apple-system",
-    "BlinkMacSystemFont",
-    '"Segoe UI"',
-    "Roboto",
-    '"Helvetica Neue"',
-    "Arial",
-    "sans-serif",
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"'
-  ].join(","),
-  fontFamilySecondary: [
     "benton-sans-wide",
     "-apple-system",
     "BlinkMacSystemFont",
@@ -34,11 +21,11 @@ const fonts = {
 const rawTheme = createMuiTheme({
   typography: {
     fontFamily: fonts.fontFamily,
-    fontFamilySecondary: fonts.fontFamilySecondary,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 600,
     fontWeightBold: 700,
+    fontSize: 16,
   },
   palette: {
     primary: {
@@ -55,7 +42,7 @@ const rawTheme = createMuiTheme({
         borderRadius: 2,
         padding: '0 30px',
         fontWeight: '700',
-        fontFamily: fonts.fontFamilySecondary
+        fontFamily: fonts.fontFamily
       },
       sizeLarge: {
         // fontSize: '18px',
@@ -79,7 +66,7 @@ const rawTheme = createMuiTheme({
 
 const fontHeader = {
   color: rawTheme.palette.text.primary,
-  fontFamily: rawTheme.typography.fontFamilySecondary,
+  fontFamily: rawTheme.typography.fontFamily,
   fontWeight: rawTheme.typography.fontWeightBold,
   textTransform: 'uppercase',
   letterSpacing: 6.5
@@ -122,8 +109,13 @@ const theme = {
     },
     h6: {
       ...rawTheme.typography.h6,
-      ...fontHeader,
       fontWeight: rawTheme.typography.fontWeightRegular,
+    },
+    subtitle1: {
+      ...rawTheme.typography.subtitle1,
+      fontWeight: rawTheme.typography.fontWeightMedium,
+      fontSize: 1.4,
+      lineHeight: 1.4
     }
   }
 };

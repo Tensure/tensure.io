@@ -5,19 +5,22 @@ import Grid from "@material-ui/core/Grid";
 import theme from "./../theme";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { StylesProvider } from '@material-ui/core/styles';
 
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline>
-          <Grid container spacing={0}>
-            <Grid item xs={12}>
-              <NavBar />
-              {children}
-              <Footer />
+          <StylesProvider injectFirst>
+            <Grid container spacing={0}>
+              <Grid item xs={12}>
+                <NavBar />
+                {children}
+                <Footer />
+              </Grid>
             </Grid>
-          </Grid>
+          </StylesProvider>
         </CssBaseline>
       </ThemeProvider>
     </React.Fragment>
