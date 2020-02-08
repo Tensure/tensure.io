@@ -3,22 +3,22 @@ import Layout from "../components/layout";
 import Post from "../components/Post";
 import { graphql } from "gatsby";
 import { Row, Col } from "reactstrap";
-import SidebarNav from "../components/SidebarNav"
+import SidebarNav from "../components/SidebarNav";
 import Sidebar from "../components/Sidebar";
 import PaginationLinks from "../components/PaginationLinks";
-
+import { Grid, Container } from "@material-ui/core";
 const postList = props => {
   const posts = props.data.allMarkdownRemark.edges;
   const { currentPage, numberOfPages } = props.pageContext;
 
   return (
     <Layout pageTitle={`Page: ${currentPage}`}>
-      <div className='container'>
-        <Row>
-          <Col md='3'>
+      <Container>
+        <Grid container spacing={3}>
+          <Grid item xs={3}>
             <SidebarNav></SidebarNav>
-          </Col>
-          <Col md='6'>
+          </Grid>
+          <Grid item xs={6}>
             {posts.map(({ node }) => (
               <Post
                 key={node.id}
@@ -35,12 +35,12 @@ const postList = props => {
               currentPage={currentPage}
               numberOfPages={numberOfPages}
             />
-          </Col>
-          <Col md='3'>
+          </Grid>
+          <Grid item xs={3}>
             <Sidebar></Sidebar>
-          </Col>
-        </Row>
-      </div>
+          </Grid>
+        </Grid>
+      </Container>
     </Layout>
   );
 };

@@ -4,36 +4,37 @@ import SEO from "../components/seo";
 import { Badge, Button, Row, Col } from "reactstrap";
 import { slugify } from "../util/utilityFunctions";
 import Sidebar from "../components/Sidebar";
-import SidebarNav from "../components/SidebarNav";
-import tagPageStyles from "./tags-page.module.scss";
+import styles from "./tags-page.module.scss";
+import { Container, Grid } from '@material-ui/core';
+import BlogBreadcrumbs from '../components/BlogBreadCrumbs';
+import Chip from '@material-ui/core/Chip'
+import Link from '@material-ui/core/Link'
 
 const TagsPage = ({ pageContext }) => {
   const { tags, tagPostCounts } = pageContext;
   return (
     <Layout pageTitle='All tags'>
-      <hr />
-      <div className='container'>
-        <SEO title='All tags' keywords={["tags", "topics"]}></SEO>
-        <Row>
-          <Col md='3'>
-            <SidebarNav />
-          </Col>
-          <Col md='6'>
-            <ul className={tagPageStyles.tags}>
+      <SEO title='All tags' keywords={["tags", "topics"]}></SEO>
+      <Container>
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
+          <BlogBreadcrumbs></BlogBreadcrumbs>
+            <ul className={styles.tags}>
               {tags.map(tag => (
-                <li key={tag} className={tagPageStyles.tag}>
-                  <Button color='primary' href={`/tag/${slugify(tag)}`}>
-                    {tag} <Badge color='light'>{tagPostCounts[tag]}</Badge>
-                  </Button>
+                <li key={tag} className={styles.tag}>
+                  <Link color='primary' href={`/tag/${slugify(tag)}`}>
+                    <Chip clickable label={tag}></Chip>
+                    <Chip color='primary' label={tagPostCounts[tag]}></Chip>
+                  </Link>
                 </li>
               ))}
             </ul>
-          </Col>
-          <Col md='3'>
+          </Grid>
+          <Grid item xs={6}>
             <Sidebar></Sidebar>
-          </Col>
-        </Row>
-      </div>
+          </Grid>
+        </Grid>
+      </Container>
     </Layout>
   );
 };

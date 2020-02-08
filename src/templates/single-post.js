@@ -19,7 +19,7 @@ import {
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
-
+import BlogBreadCrumbs from "../components/BlogBreadCrumbs"
 const SinglePost = ({ data, pageContext }) => {
   const post = data.markdownRemark.frontmatter;
   const author = authors.find(x => x.name === post.author);
@@ -31,6 +31,7 @@ const SinglePost = ({ data, pageContext }) => {
         <SEO title={post.title} />
         <Grid container spacing={3}>
           <Grid item xs={8}>
+            <BlogBreadCrumbs></BlogBreadCrumbs>
             <Card>
               <Img
                 className='card-image-top'

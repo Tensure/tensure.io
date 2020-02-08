@@ -9,6 +9,7 @@ import Layout from "../components/layout";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import BlogBreadCrumbs from '../components/BlogBreadCrumbs'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,10 +32,8 @@ const BlogPage = () => {
       <SEO title='Blog'></SEO>
       <Container className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={3}>
-            <SidebarNav></SidebarNav>
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={9}>
+            <BlogBreadCrumbs></BlogBreadCrumbs>
             <StaticQuery
               query={indexQuery}
               render={data => {

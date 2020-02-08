@@ -4,7 +4,18 @@ import Layout from "../components/layout";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
-import SidebarNav from "../components/SidebarNav"
+import SidebarNav from "../components/SidebarNav";
+import {
+  Card,
+  CardContent,
+  Chip,
+  Container,
+  Grid,
+  Typography
+} from "@material-ui/core/";
+
+import styles from "./tag-posts.module.scss";
+import BlogBreadcrumbs from '../components/BlogBreadCrumbs';
 
 const tagPosts = ({ data, pageContext }) => {
   const { tag } = pageContext;
@@ -15,12 +26,10 @@ const tagPosts = ({ data, pageContext }) => {
 
   return (
     <Layout pageTitle={pageHeader}>
-      <div className='container'>
-        <Row>
-          <Col md='3'>
-            <SidebarNav></SidebarNav>
-          </Col>
-          <Col md='6'>
+      <Container>
+        <Grid container spacing={3}>
+          <Grid item xs={9}>
+            <BlogBreadcrumbs></BlogBreadcrumbs>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <Post
                 key={node.id}
@@ -33,12 +42,12 @@ const tagPosts = ({ data, pageContext }) => {
                 fluid={node.frontmatter.image.childImageSharp.fluid}
               />
             ))}
-          </Col>
-          <Col md='3'>
+          </Grid>
+          <Grid item xs={3}>
             <Sidebar></Sidebar>
-          </Col>
-        </Row>
-      </div>
+          </Grid>
+        </Grid>
+      </Container>
     </Layout>
   );
 };

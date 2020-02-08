@@ -1,0 +1,25 @@
+.root {
+  flex-grow: 1
+}
+
+.card {
+  margin-bottom: 15px
+}
+
+.media {
+  height: 140px
+}
+
+.link {
+  text-decoration: none;
+  margin-right: 0;
+  margin-left: 1px;
+  color: black
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around
+}
