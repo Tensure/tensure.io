@@ -20,11 +20,11 @@ const Footer = ({ className }) => {
       <Grid container spacing={0} alignItems="flex-start">
         <Grid item xs={12}>
           <Container className={styles.sampleContent} maxWidth="lg">
-            <Typography color="secondary" align="center" variant="h2" marked="center">
-              Services
+            <Typography color="secondary" align="center" variant="h1" marked="center">
+              Our Service Offerings
             </Typography>
             <Container maxWidth="md">
-              <Typography color="secondary" align="center" variant="h5" className={styles.h5}>
+              <Typography color="secondary" align="center" variant="subtitle1" className={styles.h5}>
                 Application Development, Data & AI, Cloud Infrastructure, or Cybersecurity. We don't necessarily do it all, but what we do, we do it better.
               </Typography>
             </Container>
@@ -36,7 +36,7 @@ const Footer = ({ className }) => {
         <Grid item xs={12}>
           <Container className={styles.container} maxWidth="lg">
             <Typography color="inherit" align="center" variant="h1" marked="center" className={styles.heading}>
-              Let's build better together
+              Let's Get Started
             </Typography>
             <Button
               color="primary"
@@ -44,7 +44,7 @@ const Footer = ({ className }) => {
               size="large"
               className={styles.button}
               component="a"
-              href="#"
+              href="/contact"
             >Get in touch</Button>
           </Container>
         </Grid>

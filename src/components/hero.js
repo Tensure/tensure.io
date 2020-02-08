@@ -1,51 +1,23 @@
 import React from "react";
-import PropTypes from "prop-types";
-// import { withStyles } from '@material-ui/core/styles';
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import styles from "./hero.module.scss";
-// const styles = theme => ({
-//   hero: {
-//     minHeight: 820,
-//     display: 'flex',
-//     // backgroundImage: 'linear-gradient(180deg, #04B8A6 0%, #04B8A6 10%, rgba(216,216,216,0.00) 99%);',
-//     color: theme.palette.common.white,
-//     position: 'relative',
-//     alignItems: 'center',
-//     [theme.breakpoints.up('sm')]: {
-//       height: '110vh',
-//       maxHeight: 900,
-//     },
-//   },
-//   container: {
-//     marginop: theme.spacing(1),
-//     marginBottom: theme.spacing(14),
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//   },
-//   background: {
-//     backgroundPosition: 'center',
-//   },
-//   h5: {
-//     marginBottom: theme.spacing(4),
-//     marginTop: theme.spacing(2),
-//     fontWeight: 600,
-//     [theme.breakpoints.up('sm')]: {
-//       marginTop: theme.spacing(3),
-//     },
-//   },
-// });
+import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import styles from './hero.module.scss'
 
-const Hero = (props, { className }) => {
-  // const { classes } = props;
+
+
+const Hero = (props, {className}) => {
 
   return (
-      <section className={styles.hero}>
-        <Container className={styles.container} maxWidth="lg">
-          <Typography color="inherit" align="center" variant="h1" marked="center">
-            Let's build better together
+    <section className={styles.hero}>
+      <Container className={styles.container} maxWidth="lg">
+        <Typography color="inherit" align="center" variant="h1" marked="center">
+          Build better together
+        </Typography>
+        <Container maxWidth="md">
+          <Typography align="center" variant="subtitle1" className={styles.subtitle}>
+            Imagine something better, teams thriving in their careers and lives, better training and honing skills, better solutions resulting in a better bottom line.
           </Typography>
           <Container maxWidth="md">
             <Typography color="inherit" align="center" variant="h5" className={styles.h5}>
@@ -56,19 +28,20 @@ const Hero = (props, { className }) => {
               We looked at what people called the best and asked "what if it was better?"
             </Typography>
           </Container>
-          <Button
-            color="primary"
-            variant="contained"
-            size="large"
-            className={styles.button}
-            component="a"
-            href="#"
-          >
-            Contact Us
-          </Button>
         </Container>
-      </section>
-    );
+        <Button
+          color="primary"
+          variant="contained"
+          size="large"
+          className={styles.button}
+          component="a"
+          href="/contact"
+        >
+          Contact Us
+        </Button>
+      </Container>
+    </section>
+  );
 };
 
 // Hero.propTypes = {
