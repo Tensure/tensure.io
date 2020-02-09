@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
 import Menu from './menu'
+import { useStore } from 'react-hookstore';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" ref={ref} {...props} />;
@@ -13,7 +14,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const NavBar = () => {
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useStore('menuShown');
 
   const handleClickOpen = () => {
     setOpen(true);

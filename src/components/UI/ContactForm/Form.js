@@ -67,7 +67,7 @@ const ContactForm = (props) => {
               >
                 <TextField
                   required
-                  id='standard-full-width'
+                  id='name'
                   variant='outlined'
                   type='text'
                   error={errors.name != ""}
@@ -85,7 +85,7 @@ const ContactForm = (props) => {
               >
                 <TextField
                   required
-                  id='standard-full-width'
+                  id='phone'
                   variant='outlined'
                   type='text'
                   error={errors.phone != ""}
@@ -104,7 +104,7 @@ const ContactForm = (props) => {
               >
                 <TextField
                   required
-                  id='standard-full-width'
+                  id='email'
                   variant='outlined'
                   type='email'
                   error={errors.email != ""}
@@ -124,7 +124,7 @@ const ContactForm = (props) => {
               >
                 <TextField
                   required
-                  id='standard-full-width'
+                  id='message'
                   variant='outlined'
                   multiline
                   rows='10'

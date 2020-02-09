@@ -4,11 +4,24 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import styles from './hero.module.scss'
+import {useStore} from 'react-hookstore';
 
 
+const Hero = (props) => {
 
-const Hero = (props, {className}) => {
+  const [open, setOpen] = useStore('menuShown');
 
+  const handleClick = () => {
+    const val = open;
+    setOpen(!open);
+    const el = document.getElementById('contact');
+    setTimeout(() => {
+      document.getElementById('contact').scrollIntoView({behavior: 'smooth'}) ;
+    }, 700);
+    
+  };
+
+  
   return (
     <section className={styles.hero}>
       <Container className={styles.container} maxWidth="lg">
