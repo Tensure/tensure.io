@@ -1,7 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
-import SidebarNav from "../components/SidebarNav";
 import Sidebar from "../components/Sidebar";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
@@ -19,7 +18,10 @@ import {
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import BlogBreadCrumbs from "../components/BlogBreadCrumbs"
+import BlogBreadCrumbs from "../components/BlogBreadCrumbs";
+import withWidth from "@material-ui/core/withWidth";
+import Hidden from "@material-ui/core/Hidden";
+
 const SinglePost = ({ data, pageContext }) => {
   const post = data.markdownRemark.frontmatter;
   const author = authors.find(x => x.name === post.author);
@@ -30,7 +32,7 @@ const SinglePost = ({ data, pageContext }) => {
       <Container>
         <SEO title={post.title} />
         <Grid container spacing={3}>
-          <Grid item xs={8}>
+          <Grid item xs>
             <BlogBreadCrumbs></BlogBreadCrumbs>
             <Card>
               <Img
@@ -38,7 +40,7 @@ const SinglePost = ({ data, pageContext }) => {
                 fluid={post.image.childImageSharp.fluid}
               />
               <CardContent>
-                <Typography variant="h6">
+                <Typography variant='h6'>
                   <span className='text-info'>{post.date}</span> by{" "}
                   <span className='text-info'>{post.author}</span>
                 </Typography>
@@ -116,12 +118,14 @@ const SinglePost = ({ data, pageContext }) => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={4}>
-            <Sidebar
-              postAuthor={author}
-              authorImageFluid={data.file.childImageSharp.fluid}
-            />
-          </Grid>
+          <Hidden smDown>
+            <Grid item xs={4}>
+              <Sidebar
+                postAuthor={author}
+                authorImageFluid={data.file.childImageSharp.fluid}
+              />
+            </Grid>
+          </Hidden>
         </Grid>
       </Container>
     </Layout>
@@ -156,4 +160,4 @@ export const postQuery = graphql`
     }
   }
 `;
-export default SinglePost;
+export default withWidth()(SinglePost);

@@ -5,17 +5,11 @@ import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 import SidebarNav from "../components/SidebarNav";
-import {
-  Card,
-  CardContent,
-  Chip,
-  Container,
-  Grid,
-  Typography
-} from "@material-ui/core/";
-
+import { Container, Grid } from "@material-ui/core/";
 import styles from "./tag-posts.module.scss";
-import BlogBreadcrumbs from '../components/BlogBreadCrumbs';
+import BlogBreadcrumbs from "../components/BlogBreadCrumbs";
+import withWidth from "@material-ui/core/withWidth";
+import Hidden from "@material-ui/core/Hidden";
 
 const tagPosts = ({ data, pageContext }) => {
   const { tag } = pageContext;
@@ -28,7 +22,7 @@ const tagPosts = ({ data, pageContext }) => {
     <Layout pageTitle={pageHeader}>
       <Container>
         <Grid container spacing={3}>
-          <Grid item xs={9}>
+          <Grid item xs>
             <BlogBreadcrumbs></BlogBreadcrumbs>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <Post
@@ -43,9 +37,11 @@ const tagPosts = ({ data, pageContext }) => {
               />
             ))}
           </Grid>
-          <Grid item xs={3}>
-            <Sidebar></Sidebar>
-          </Grid>
+          <Hidden smDown>
+            <Grid item xs={3}>
+              <Sidebar></Sidebar>
+            </Grid>
+          </Hidden>
         </Grid>
       </Container>
     </Layout>
@@ -85,4 +81,4 @@ export const tagQuery = graphql`
   }
 `;
 
-export default tagPosts;
+export default withWidth()(tagPosts);

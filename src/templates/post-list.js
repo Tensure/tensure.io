@@ -2,11 +2,14 @@ import React from "react";
 import Layout from "../components/layout";
 import Post from "../components/Post";
 import { graphql } from "gatsby";
-import { Row, Col } from "reactstrap";
 import SidebarNav from "../components/SidebarNav";
 import Sidebar from "../components/Sidebar";
 import PaginationLinks from "../components/PaginationLinks";
 import { Grid, Container } from "@material-ui/core";
+import BlogBreadCrumbs from "../components/BlogBreadCrumbs";
+import withWidth from "@material-ui/core/withWidth";
+import Hidden from "@material-ui/core/Hidden";
+
 const postList = props => {
   const posts = props.data.allMarkdownRemark.edges;
   const { currentPage, numberOfPages } = props.pageContext;
@@ -15,10 +18,8 @@ const postList = props => {
     <Layout pageTitle={`Page: ${currentPage}`}>
       <Container>
         <Grid container spacing={3}>
-          <Grid item xs={3}>
-            <SidebarNav></SidebarNav>
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item xs>
+            <BlogBreadCrumbs />
             {posts.map(({ node }) => (
               <Post
                 key={node.id}
@@ -36,9 +37,11 @@ const postList = props => {
               numberOfPages={numberOfPages}
             />
           </Grid>
-          <Grid item xs={3}>
-            <Sidebar></Sidebar>
-          </Grid>
+          <Hidden smDown>
+            <Grid item xs={3}>
+              <Sidebar></Sidebar>
+            </Grid>
+          </Hidden>
         </Grid>
       </Container>
     </Layout>
@@ -77,4 +80,4 @@ export const postListQuery = graphql`
     }
   }
 `;
-export default postList;
+export default withWidth()(postList);

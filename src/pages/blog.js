@@ -4,27 +4,28 @@ import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post";
 import Sidebar from "../components/Sidebar";
 import PaginationLinks from "../components/PaginationLinks";
-import SidebarNav from "../components/SidebarNav"
 import Layout from "../components/layout";
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import BlogBreadCrumbs from '../components/BlogBreadCrumbs'
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import BlogBreadCrumbs from "../components/BlogBreadCrumbs";
+import withWidth from "@material-ui/core/withWidth";
+import Hidden from "@material-ui/core/Hidden";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+    textAlign: "center",
+    color: theme.palette.text.secondary
+  }
 }));
 
 const BlogPage = () => {
   const classes = useStyles();
-  
+
   const postsPerPage = 3;
   let numberOfPages;
   return (
@@ -32,7 +33,7 @@ const BlogPage = () => {
       <SEO title='Blog'></SEO>
       <Container className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={9}>
+          <Grid item xs>
             <BlogBreadCrumbs></BlogBreadCrumbs>
             <StaticQuery
               query={indexQuery}
@@ -59,11 +60,13 @@ const BlogPage = () => {
                 );
               }}
             />
-              <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
+            <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
           </Grid>
-          <Grid item xs={3}>
-            <Sidebar />
-          </Grid>
+          <Hidden smDown>
+            <Grid item xs={3}>
+              <Sidebar />
+            </Grid>
+          </Hidden>
         </Grid>
       </Container>
     </Layout>
@@ -103,4 +106,4 @@ const indexQuery = graphql`
     }
   }
 `;
-export default BlogPage;
+export default withWidth()(BlogPage);

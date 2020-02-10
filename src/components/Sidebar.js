@@ -3,10 +3,7 @@ import {
   Button,
   Card,
   CardContent,
-  FormControl,
-  TextField,
   Typography,
-  CardActionArea
 } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -16,17 +13,18 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Link } from "gatsby";
-import sidebarStyles from "./sidebar.module.scss";
+import styles from "./sidebar.module.scss";
+
 const Sidebar = ({ authorImageFluid, postAuthor }) => (
   <div>
     {postAuthor && (
-      <Card className={sidebarStyles.card}>
+      <Card className={styles.card}>
         <Img className='card-image-top' fluid={authorImageFluid} />
         <CardContent>
           <Typography variant='h6'>{postAuthor.name}</Typography>
           <Typography variant='body1'>{postAuthor.bio}</Typography>
-          <div className={sidebarStyles.social}>
-            <ul className={sidebarStyles.list}>
+          <div className={styles.social}>
+            <ul className={styles.list}>
               <li>
                 <a
                   href={postAuthor.facebook}
@@ -82,7 +80,7 @@ const Sidebar = ({ authorImageFluid, postAuthor }) => (
         </CardContent>
       </Card>
     )}
-    {/* <Card className={sidebarStyles.card}>
+    {/* <Card className={styles.card}>
       <CardContent>
         <Typography className="text-center text-uppercase mb-3">
           Newsletter
@@ -100,7 +98,7 @@ const Sidebar = ({ authorImageFluid, postAuthor }) => (
         </form>
       </CardContent>
     </Card> */}
-    <Card className={sidebarStyles.card}>
+    <Card className={styles.card}>
       <CardContent>
         <Typography className='text-center text-uppercase'>
           Advertisement
@@ -112,7 +110,7 @@ const Sidebar = ({ authorImageFluid, postAuthor }) => (
         />
       </CardContent>
     </Card>
-    <Card className={sidebarStyles.card}>
+    <Card className={styles.card}>
       <CardContent>
         <Typography className='text-center text-uppercase mb-3'>
           Recent Posts
@@ -122,7 +120,7 @@ const Sidebar = ({ authorImageFluid, postAuthor }) => (
           render={data => (
             <div>
               {data.allMarkdownRemark.edges.map(({ node }) => (
-                <Card className={sidebarStyles.card} key={node.id}>
+                <Card className={styles.card} key={node.id}>
                   <Link to={`/blog/${node.fields.slug}`}>
                     <Img
                       className='card-image-top'
@@ -132,7 +130,7 @@ const Sidebar = ({ authorImageFluid, postAuthor }) => (
                   <CardContent>
                     <Typography>
                       <Link
-                        className={sidebarStyles.link}
+                        className={styles.link}
                         to={`/blog/${node.fields.slug}`}
                       >
                         <Button color='primary' size='small'>
