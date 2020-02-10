@@ -41,6 +41,7 @@ const BlogPage = () => {
                 numberOfPages = Math.ceil(
                   data.allMarkdownRemark.totalCount / postsPerPage
                 );
+                console.log(numberOfPages) // to be removed
                 return (
                   <div>
                     {data.allMarkdownRemark.edges.map(({ node }) => (
