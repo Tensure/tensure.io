@@ -13,8 +13,7 @@ const Hero = (props) => {
 
   const handleClick = () => {
     const val = open;
-    setOpen(!open);
-    const el = document.getElementById('contact');
+    setOpen(!val);
     setTimeout(() => {
       document.getElementById('contact').scrollIntoView({behavior: 'smooth'}) ;
     }, 700);
@@ -49,7 +48,6 @@ const Hero = (props) => {
 };
 
 Hero.propTypes = {
-  classes: PropTypes.object.isRequired,
 };
 
 export default Hero;
