@@ -9,11 +9,12 @@ const PaginationLinks = ({ currentPage, numberOfPages }) => {
   // const previousPage =
   //   currentPage - 1 === 1 ? "/blog" : "/blog/" + (currentPage - 1).toString();
   // const nextPage = "/blog/" + (currentPage + 1).toString();
-  console.log(currentPage, numberOfPages)
+  console.log(currentPage, numberOfPages) // not sure why it is undefined. 
+
   const { items } = usePagination({
-    count: 2,
+    count: numberOfPages,
   })
-  console.log(items)
+  console.log(items) // not sure why next to be clicked twice in order for it to be disabled
   return (
     <Pagination>
         {items.map(item => (

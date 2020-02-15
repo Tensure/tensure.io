@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 
 const BlogPage = () => {
   const classes = useStyles();
-
   const postsPerPage = 3;
   let numberOfPages;
   return (
@@ -36,7 +35,7 @@ const BlogPage = () => {
           <Grid item xs>
             <BlogBreadCrumbs></BlogBreadCrumbs>
             <StaticQuery
-              query={indexQuery}
+              query={blogQuery}
               render={data => {
                 numberOfPages = Math.ceil(
                   data.allMarkdownRemark.totalCount / postsPerPage
@@ -74,7 +73,7 @@ const BlogPage = () => {
   );
 };
 
-const indexQuery = graphql`
+const blogQuery = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }

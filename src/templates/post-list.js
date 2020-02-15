@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../components/layout";
 import Post from "../components/Post";
 import { graphql } from "gatsby";
-import SidebarNav from "../components/SidebarNav";
 import Sidebar from "../components/Sidebar";
 import PaginationLinks from "../components/PaginationLinks";
 import { Grid, Container } from "@material-ui/core";
