@@ -7,6 +7,7 @@ import sampleWork from "../images/tensure-work-samples.png"
 import stackedLogo from "../images/logo-stacked-white.svg"
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
+import Testimonals from "./testimonials";
 
 const Footer = ({ className }) => {
 
@@ -31,7 +32,7 @@ const Footer = ({ className }) => {
           </Container>
         </Grid>        
         <Grid item xs={12}>
-          <img src={ sampleWork } alt="Tensure Example Work" />
+          <Testimonals />
         </Grid>
         <Grid item xs={12}>
           <Container className={styles.container} maxWidth="lg">

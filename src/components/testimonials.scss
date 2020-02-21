@@ -1,0 +1,106 @@
+@import "../styles/variables.scss";
+
+.slick-list {
+    padding: 20px 0px !important;
+}
+.slick-slide {
+    position: relative;
+    min-height: 1070px !important;
+}
+.slick-slide .cardWrap {
+    transform: scale(0.85) translate(-59%, 0);
+    transition: all 1.5s ease;
+    width: 634px !important;
+    z-index: 1;
+    margin: 10px auto;
+    position: absolute !important;
+    left: 50%;
+    opacity: 1;
+}
+.slick-slide.slick-center .cardWrap {
+    transform: scale(1) translate(-50%, 0);
+    transition: all 1.5s ease;
+    width: 848px  !important;
+    z-index: 2;   
+}
+
+.cardWrap {
+    background: $secondary;
+}
+.card {
+    background: $primary;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    padding-bottom: 90px;
+    padding-top: 70px;
+    border-top: 21px solid $secondary;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    :after {
+        background: $secondary;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 35%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        clip-path: polygon(100% 3%, 0% 100%, 100% 100%);
+        transform-origin: 100%;
+        z-index: -1;
+      }
+}
+
+.body {
+    padding: 0px 70px 20px 70px;
+    font-size: 21px;
+    font-weight: 600;
+    min-height: 440px;
+}
+.person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name, .title {
+    padding-left: 30px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 21px;
+    font-weight: 600;
+    text-align: left;
+}
+.name span{
+    text-transform: uppercase;
+}
+.img-wrap {
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(130deg, rgba(0,42,73,1) 0%, rgba(241,241,241,1) 100%);
+    padding: 3px;
+    margin: 50px;
+}
+
+.profilePic {
+    width: 263px;
+    height: 263px;
+    border-radius: 50%;
+    text-align: right;
+    margin: 2px;
+}
+
+.slick-next {
+    right: 60px !important;
+}
+.slick-prev {
+    left: 10px !important;
+}
+.slick-prev, .slick-next {
+    z-index: 1 !important;
+}
+.slick-prev:before, .slick-next:before {
+    font-size: 70px !important;
+    opacity: .35 !important;
+    z-index: 1 !important;
+}
