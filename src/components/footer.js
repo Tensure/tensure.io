@@ -3,15 +3,14 @@ import styles from "./footer.module.scss";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import backgroundLogo from "../images/tensure-homepage-logo-background.png"
-import sampleWork from "../images/tensure-work-samples.png"
 import stackedLogo from "../images/logo-stacked-white.svg"
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import Testimonals from "./testimonials";
+import useMenuState from './Hooks/useMenuState';
 
 const Footer = ({ className }) => {
-
-
+  const { handleMenuShownClick} = useMenuState();
   const divStyle = {
     backgroundImage: `URL(${backgroundLogo})`
   };
@@ -45,7 +44,7 @@ const Footer = ({ className }) => {
               size="large"
               className={styles.button}
               component="a"
-              href="/contact"
+              onClick={handleMenuShownClick}
             >Get in touch</Button>
           </Container>
         </Grid>

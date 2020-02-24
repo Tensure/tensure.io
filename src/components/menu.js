@@ -52,8 +52,8 @@ const Menu = (props) => {
               </Typography>
             </Button>
           </Grid>
-          <Grid item>
-            <Button color="secondary" href="#company-name">
+          <Grid item id="contact">
+            <Button color="secondary" href="#company-name" name="contact-btn">
               <Typography color="inherit" align="center" variant="h1" marked="center">
                 Contact
               </Typography>

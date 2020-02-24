@@ -3,10 +3,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import styles from './hero.module.scss'
+import useMenuState from './Hooks/useMenuState';
 
-
-
-const Hero = () => {
+const Hero = (props) => {
+  const { handleMenuShownClick} = useMenuState();
 
   return (
     <section className={styles.hero}>
@@ -25,7 +25,7 @@ const Hero = () => {
           size="large"
           className={styles.button}
           component="a"
-          href="/contact"
+          onClick={handleMenuShownClick}
         >
           Contact Us
         </Button>
@@ -34,5 +34,7 @@ const Hero = () => {
   );
 };
 
+Hero.propTypes = {
+};
 
 export default Hero;

@@ -6,8 +6,11 @@ import theme from "./../theme";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { StylesProvider } from '@material-ui/core/styles';
+import useMenuState from './Hooks/useMenuState';
 
 const Layout = ({ children }) => {
+  //Initializes menuState
+  useMenuState();
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
