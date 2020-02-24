@@ -87,17 +87,17 @@ const theme = {
     h1: {
       ...rawTheme.typography.h1,
       ...fontHeader,
-      fontSize: 3.5,
+      fontSize: '3.5rem',
     },
     h2: {
       ...rawTheme.typography.h2,
       ...fontHeader,
-      fontSize: 3,
+      fontSize: '3rem',
     },
     h3: {
       ...rawTheme.typography.h3,
       ...fontHeader,
-      fontSize: 2.5,
+      fontSize: '2.5rem',
     },
     h4: {
       ...rawTheme.typography.h4,
@@ -114,7 +114,7 @@ const theme = {
     subtitle1: {
       ...rawTheme.typography.subtitle1,
       fontWeight: rawTheme.typography.fontWeightMedium,
-      fontSize: 1.4,
+      fontSize: '1.4rem',
       lineHeight: 1.4
     }
   }
