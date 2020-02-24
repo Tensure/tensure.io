@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { createStore, useStore } from 'react-hookstore';
 
 const useMenuState = () => {
@@ -18,8 +17,6 @@ const useMenuState = () => {
     };
 
     return {
-        open,
-        setOpen,
         handleMenuShownClick
     }
 }

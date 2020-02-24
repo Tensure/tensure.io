@@ -29,12 +29,14 @@ const NavBar = () => {
 
       <Grid container justify="space-between" alignItems="center" spacing={3}>
         <Grid item>
-          <a href="/"><img className={styles.logo} src={ logo } alt="Tensure Logo" /></a>
+          <a href="/"><img className={styles.logo} src={logo} alt="Tensure Logo" /></a>
         </Grid>
         <Grid item>
-          <a onClick={handleClickOpen} className={styles.menuButton}>
-            <img src={ menuIcon } alt="Tensure Logo" />
-          </a>
+          <div className={styles.menuButton}>
+            <div tabindex="0" role="link" onClick={handleClickOpen} className={styles.menuButton}>
+              <img src={menuIcon} alt="Tensure Logo" />
+            </div>
+          </div>
           <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} className={styles.dialog}>
             <Menu handleClickClose={handleClose} />
           </Dialog>

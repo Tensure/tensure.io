@@ -3,12 +3,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import styles from './hero.module.scss'
-import {useStore} from 'react-hookstore';
 import useMenuState from './Hooks/useMenuState';
 
-
 const Hero = (props) => {
-  const { open, setOpen, handleMenuShownClick} = useMenuState();
+  const { handleMenuShownClick} = useMenuState();
 
   return (
     <section className={styles.hero}>
