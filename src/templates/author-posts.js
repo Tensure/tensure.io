@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import Post from "../components/Post";
 import { graphql } from "gatsby";
 import authors from "../util/authors";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar";
 import SidebarNav from "../components/SidebarNav";
 import { Row, Col } from "reactstrap";
 

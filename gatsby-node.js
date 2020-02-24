@@ -57,8 +57,8 @@ exports.createPages = ({ actions, graphql }) => {
           // Passing slug for template to use to get post
           slug: node.fields.slug,
           // Find author imageUrl from authors and pass it to the single post template
-          imageUrl: authors.find(x => x.name === node.frontmatter.author)
-            .imageUrl
+          imageUrl: node.frontmatter.author != null ? authors.find(x => x.name === node.frontmatter.author)
+            .imageUrl : 'A01-tensure_logo_main_rgb.png'
         }
       });
     });
