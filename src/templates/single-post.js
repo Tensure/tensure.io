@@ -1,8 +1,8 @@
 import React from "react";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
-import SidebarNav from "../components/SidebarNav";
-import Sidebar from "../components/Sidebar";
+import SidebarNav from "../components/sidebarnav";
+import Sidebar from "../components/sidebar";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
 import { Badge, Card, CardBody, CardSubtitle, Row, Col } from "reactstrap";

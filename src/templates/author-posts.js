@@ -4,7 +4,7 @@ import Post from "../components/Post";
 import { graphql } from "gatsby";
 import authors from "../util/authors";
 import Sidebar from "../components/sidebar";
-import SidebarNav from "../components/SidebarNav";
+import SidebarNav from "../components/sidebarsav";
 import { Row, Col } from "reactstrap";
 
 const authorPosts = ({ data, pageContext }) => {
