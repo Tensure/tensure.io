@@ -4,9 +4,9 @@ import SEO from "../components/seo";
 import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar";
 import PaginationLinks from "../components/PaginationLinks";
-import SidebarNav from "../components/SidebarNav"
+import SidebarNav from "../components/sidebarnav"
 
 const BlogPage = () => {
   const postsPerPage = 3;

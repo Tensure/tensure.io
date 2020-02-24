@@ -3,8 +3,8 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
-import Sidebar from "../components/Sidebar";
-import SidebarNav from "../components/SidebarNav"
+import Sidebar from "../components/sidebar";
+import SidebarNav from "../components/sidebarnav"
 
 const tagPosts = ({ data, pageContext }) => {
   const { tag } = pageContext;

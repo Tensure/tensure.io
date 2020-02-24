@@ -13,7 +13,7 @@ import {
 import TonyImage from "../images/tony.png";
 import DougImage from "../images/doug.png";
 import { slugify } from "../util/utilityFunctions";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar";
 
 const TeamPage = () => {
   

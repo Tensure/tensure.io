@@ -7,10 +7,11 @@ import sampleWork from "../images/tensure-work-samples.png"
 import stackedLogo from "../images/logo-stacked-white.svg"
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
+import Testimonals from "./testimonials";
+import useMenuState from './Hooks/useMenuState';
 
 const Footer = ({ className }) => {
-
-
+  const { open, setOpen, handleMenuShownClick} = useMenuState();
   const divStyle = {
     backgroundImage: `URL(${backgroundLogo})`
   };
@@ -31,7 +32,7 @@ const Footer = ({ className }) => {
           </Container>
         </Grid>        
         <Grid item xs={12}>
-          <img src={ sampleWork } alt="Tensure Example Work" />
+          <Testimonals />
         </Grid>
         <Grid item xs={12}>
           <Container className={styles.container} maxWidth="lg">
@@ -44,11 +45,11 @@ const Footer = ({ className }) => {
               size="large"
               className={styles.button}
               component="a"
-              href="/contact"
+              onClick={handleMenuShownClick}
             >Get in touch</Button>
           </Container>
         </Grid>
-        <Grid item xs={12} justify="center">
+        <Grid item xs={12}>
           <Container className={styles.logo} maxWidth="xs">
             <img src={ stackedLogo } alt="Tensure Logo" />
           </Container>

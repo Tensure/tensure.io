@@ -1,0 +1,148 @@
+@import "../styles/variables.scss";
+
+.slick-list {
+    padding: 20px 0px !important;
+}
+.slick-slide {
+    position: relative;
+    min-height: 860px !important; //TODO: make this adjust per content
+    @media (min-width: 1024px) {
+        min-height: 1070px !important;
+    }
+}
+.slick-slide.slick-active .cardWrap {
+    background: $secondary;
+    transform: scale(0.85) translate(-59%, 0);
+    transition: all 0.3s ease;
+    width: 90% !important;
+    z-index: 1;
+    margin: 10px auto;
+    position: absolute !important;
+    left: 50%;
+    opacity: 1;
+    @media (min-width: 1024px) {
+        width: 634px !important;
+    }
+}
+.slick-slide.slick-center .cardWrap {
+    transform: scale(1) translate(-50%, 0);
+    transition: all 0.3s ease;
+    width: 95% !important;
+    z-index: 2;
+    @media (min-width: 1024px) {
+        width: 848px  !important;
+    }
+}
+
+.card {
+    background: $primary;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    padding-bottom: 90px;
+    padding-top: 70px;
+    border-top: 21px solid $secondary;
+    box-shadow: none;
+    z-index: 1;
+}
+.card:after {
+    background: $secondary;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 35%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    clip-path: polygon(100% 3%, 0% 100%, 100% 100%);
+    transform-origin: 100%;
+    z-index: -1;
+}
+
+
+.slick-slide.slick-active .card {
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);   
+}
+
+.body {
+    padding: 0px 9% 20px 9%;
+    font-weight: 600;
+    font-size: .85rem;
+    @media (min-width: 1024px) {
+        min-height: 460px;
+        font-size: 1.34rem;
+    }
+}
+.person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.name, .title {
+    padding-left: 30px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    @media (min-width: 1024px) {
+        font-size: 1.35rem;
+    }
+}
+.name span{
+    text-transform: uppercase;
+}
+.slick-slide.slick-active .img-wrap {
+    margin: 20px;
+}
+.slick-slide.slick-center .img-wrap {
+    margin: 20px;
+    @media (min-width: 1024px) {
+        margin: 50px;
+    }
+}
+.img-wrap {
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(130deg, rgba(0,42,73,1) 0%, rgba(241,241,241,1) 100%);
+    padding: 3px;
+    margin: 20px;
+    margin-left: auto;
+    @media (min-width: 1024px) {
+        margin: 50px;
+    }
+}
+
+.slick-slide.slick-active .profilePic {
+    width: 163px;
+    height: 163px;
+}
+.slick-slide.slick-center .profilePic {
+    width: 163px;
+    height: 163px;
+    @media (min-width: 1024px) {
+        width: 263px;
+        height: 263px;
+    }
+}
+.profilePic {
+    border-radius: 50%;
+    text-align: right;
+    margin: 2px;
+}
+
+.slick-next {
+    right: 60px !important;
+}
+.slick-prev {
+    left: 10px !important;
+}
+.slick-prev, .slick-next {
+    z-index: 1 !important;
+}
+.slick-prev:before, .slick-next:before {
+    font-size: 70px !important;
+    opacity: .35 !important;
+    z-index: 1 !important;
+}
