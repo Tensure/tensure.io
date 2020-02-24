@@ -3,8 +3,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Badge, Button, Row, Col } from "reactstrap";
 import { slugify } from "../util/utilityFunctions";
-import Sidebar from "../components/Sidebar";
-import SidebarNav from "../components/SidebarNav";
+import Sidebar from "../components/sidebar";
+import SidebarNav from "../components/sidebarnav";
 import tagPageStyles from "./tags-page.module.scss";
 
 const TagsPage = ({ pageContext }) => {
