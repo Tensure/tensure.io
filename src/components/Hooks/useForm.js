@@ -33,7 +33,7 @@ const useForm = (callback, validate) => {
   };
 
   useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
+    if (!Object.values(errors).some(errorMessage => errorMessage !== '') && isSubmitting) {
       callback();
     }
   }, [errors]);
