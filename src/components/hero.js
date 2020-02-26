@@ -12,11 +12,11 @@ const Hero = (props) => {
     <section className={styles.hero}>
       <Container className={styles.container} maxWidth="lg">
         <Typography color="inherit" align="center" variant="h1" marked="center">
-          Build better together
+          Freedom to Move
         </Typography>
         <Container maxWidth="md">
           <Typography align="center" variant="subtitle1" className={styles.subtitle}>
-            Imagine something better, teams thriving in their careers and lives, better training and honing skills, better solutions resulting in a better bottom line.
+            It’s easy to dream and imagine the end result, but right now, you’re feeling stuck. At Tensure, we put the right people, processes, and expertise in place to help move you past what’s blocking you and your team, giving you the freedom to move toward something better, faster.
           </Typography>
         </Container>
         <Button

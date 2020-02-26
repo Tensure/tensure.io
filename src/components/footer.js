@@ -21,11 +21,13 @@ const Footer = ({ className }) => {
         <Grid item xs={12}>
           <Container className={styles.sampleContent} maxWidth="lg">
             <Typography color="secondary" align="center" variant="h1" marked="center">
-              Our Service Offerings
+              WHAT’S STANDING IN YOUR WAY?
             </Typography>
             <Container maxWidth="md">
               <Typography color="secondary" align="center" variant="subtitle1" className={styles.h5}>
-                Application Development, Data & AI, Cloud Infrastructure, or Cybersecurity. We don't necessarily do it all, but what we do, we do it better.
+              We do a lot of things - from custom software design to cloud infrastructure and machine learning. We have a strong focus on taking pieces of technology and seamlessly integrating them to help you move forward and and discover your next big project.
+              <br />
+              Here’s how we’ve helped people move forward:              
               </Typography>
             </Container>
           </Container>
