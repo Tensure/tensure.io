@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby"
 import Container from '@material-ui/core/Container';
 import styles from './testimonials.module.scss'
-import style from './testimonials.scss'
+import './testimonials.scss'
 import Slider from "react-slick";
 import Img from "gatsby-image"
 import "slick-carousel/slick/slick.css";
@@ -53,15 +53,15 @@ const Testimonals = () => {
 
   return (
     <section className={styles.testimonals}>
-      <Container maxWidth={'maxWidthLg'} disableGutters="true">
+      <Container maxWidth={"xl"} disableGutters={true}>
         <div>
           <Slider {...settings}>
-            {data.map(data => {
+            {data.map((data, index) => {
 
               const person = data.node.frontmatter
 
               return (
-                <div className={styles.cardWrap + " cardWrap"}>
+                <div key={index} className={styles.cardWrap + " cardWrap"}>
                   <div className={styles.card + " card"}>
                     <p className={styles.body + " body"}>{person.description}</p>
                     <div className={styles.person + " person"}>

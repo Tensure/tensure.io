@@ -33,7 +33,7 @@ const NavBar = () => {
         </Grid>
         <Grid item>
           <div className={styles.menuButton}>
-            <div tabindex="0" role="link" onClick={handleClickOpen} className={styles.menuButton}>
+            <div tabIndex="0" role="link" onClick={handleClickOpen} className={styles.menuButton}>
               <img src={menuIcon} alt="Tensure Logo" />
             </div>
           </div>
