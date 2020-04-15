@@ -9,7 +9,6 @@
     "babel-plugin-styled-components": "^1.10.6",
     "core-js": "^3.6.5",
     "firebase": "^7.8.1",
-    "fsevents": "^2.1.2",
     "gatsby": "^2.19.12",
     "gatsby-background-image": "^0.9.14",
     "gatsby-image": "^2.2.40",
